@@ -1,0 +1,7 @@
+D:\p4root\specA\stryker\OrigUdpListenerUpgrade\obj\Debug\Interop.MSWinsockLib.dll
+D:\p4root\specA\stryker\OrigUdpListenerUpgrade\obj\Debug\Interop.RPCOXLib.dll
+D:\p4root\specA\stryker\OrigUdpListenerUpgrade\obj\Debug\Interop.TDEVACCXLib.dll
+D:\p4root\specA\stryker\OrigUdpListenerUpgrade\obj\Debug\AxInterop.MSWinsockLib.dll
+D:\p4root\specA\stryker\OrigUdpListenerUpgrade\obj\Debug\AxInterop.RPCOXLib.dll
+D:\p4root\specA\stryker\OrigUdpListenerUpgrade\obj\Debug\AxInterop.TDEVACCXLib.dll
+D:\p4root\specA\stryker\OrigUdpListenerUpgrade\obj\Debug\UDP_TDT.vbproj.ResolveComReference.cache

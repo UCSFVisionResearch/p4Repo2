@@ -1,0 +1,52 @@
+####################
+	NOTES
+####################
+
+---------------------
+40075L_*_420x420.tif
+---------------------
+These are images taken from patient 40075 on 23 Oct 2013. The patient is 
+diagnosed as suffering from enlarged blind spot syndrome.
+
+File                  | Description
+----------------------+-------------------------------------------------------
+40075L_00_420x420.tif | Healthy foveal retina, dense cones
+----------------------+-------------------------------------------------------
+40075L_06_420x420.tif | Diseased nasal retina, ~4 deg eccentric, notable cone
+                      | loss
+----------------------+-------------------------------------------------------
+40075L_09_420x420.tif | Heavily diseased nasal re, ~7 deg eccentric, profound
+                      | cone loss
+----------------------+-------------------------------------------------------
+40075L_m1_420x420.tif | Montages cropped from 
+40075L_m2_420x420.tif | 40075L_2013-10-23_Final_PRL_420x420.tif, extending 
+                      | approx. +/- 7 deg. The contrast was equalized by eye 
+                      | in a manual process.
+----------------------+-------------------------------------------------------
+40075L_m3_420x420.tif | Pseudo-montage made from 00, 06, and 09, separated by
+40075L_m3_420x420.psd | black borders exactly one pixel wide. The contrast was
+                      | equalized by eye in a manual process using an 
+                      | adjustment layer; the tif is output from the psd.
+
+The Photoshop documents contain the referenced cone mosaic TIFF image with 
+plots of detected cones superimposed, each plot inhabiting a separate layer.
+The plots are named for the "threshold" parameter to the AOim2xy algorithm.
+
+
+OverlayPlot montages with Gaussian-windowed low pass:
+
+	40075L_00_420x420_LP.psd (6748 cones)
+	40075L_06_420x420_LP.psd (4657 cones)
+	40075L_09_420x420_LP.psd (4558 cones)
+
+	MATLAB code:
+		% Low pass filter
+		H_low = AOfirKernel(0.61);
+		If = imfilter(Id, H_low);
+
+		% High pass filter
+		W = fspecial('gaussian', 7, 0.5);
+		W = W./max(W(:));
+		H_high = AOfirKernel(0.05, W);
+		If = If - imfilter(If, H_high);
+

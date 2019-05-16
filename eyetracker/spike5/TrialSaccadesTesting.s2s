@@ -1,0 +1,633 @@
+' JVB 11/7/2011 adapted ScotomaMap.s2s
+' change log:
+' Foo
+'JRE Added color change for targets and peripheral spots to XY window  8/21/2012
+
+View(App(0)).WindowVisible(3); 'enlarge application window
+View(App(2)).WindowVisible(0);  ''hides the status bar
+View(LogHandle()).WindowVisible(0);'hides log window
+'____________
+	var EnableCode%:=512+256+128+64+32+16+4+2+1;	
+	var vh%, vhPH%, vhXYScope%;
+	var info$,sampl%;
+	var TOn:=500, TOff:=35, TFeed:=250, TNextStep:=1;
+	var XYeyeL%:=1, XYeyeR%:=1, XYTarg%:=1, XYBg%:=1, XYwin%:=1,XYpers%:=1, eye%:=3, longFeed%:=0;
+	var WinWid[2],WinOff[2],Winx[4],Winy[4];
+	var XwinLUT[4],YwinLUT[4];
+	var xysc1%,xysc2%,xysc3%,xysc4%,xysc5%,xysc6%;
+	var gxLoScp,gyLoScp,gxHiScp,gyHiScp;
+	var gxLWScp,gyLWScp,gxHWScp,gyHWScp;
+	var hgainL, hgainR, hOffsetL, hOffsetR;
+    var vgainL, vgainR, vOffsetL, vOffsetR;
+    var targColor%, periColor%;'Added 8/21/12
+	
+	hgainL := 20;
+	hgainR := 20;
+	vgainL := 20;
+	vgainR := 20;
+
+
+	hOffsetL := 0;
+	hOffsetR := 0;
+	vOffsetL := 0;
+	vOffsetR := 0;
+
+	XwinLUT[0]:=-1;	XwinLUT[1]:=-1;	XwinLUT[2]:=1;	XwinLUT[3]:=1;
+	YwinLUT[0]:=-1;	YwinLUT[1]:=1; 	YwinLUT[2]:=1;	YwinLUT[3]:=-1;
+
+	ArrConst(WinWid[],20);
+	ArrConst(WinOff[],0);
+
+	
+	if SampleStatus()=2 then 
+		if not Query("Currently sampling.","OK","Stop sampling") then
+		SampleStop();  endif;
+	endif;
+
+	ToolbarClear(); 'Remove buttons
+	ToolbarSet(1, "Quit",OnQuit%);
+	ToolbarSet(5, "Write to Disk",Diskwrite%);
+	ToolbarSet(15, "Reward Parameters",Reward%);
+	ToolbarSet(16, "Window Parameters",XYScope%);
+	ToolbarSet(17, "Calibration Controls", DoCalibration%);
+    ToolbarSet(25, "Manual Feed", Feed%);
+    ToolbarSet(26, "Manual Buzzer", Buzz%);
+	Sample%();
+	Labels(1);  'label - sampling
+	Toolbar("",EnableCode%);'until quit
+	halt;  'END OF MAIN MACRO 
+'*******************************************
+
+PROC Labels(Sampling%)
+	if Sampling%<>0 then
+	  ToolbarSet(0, "report on disk writing",IDLEPROC%);  'idle proc runs when no button is pressed
+	  ToolbarSet(2,"Stop File", OnStop%);
+			''''''ToolbarText("**SAMPLING**  "+info$);
+	else
+	  ToolbarClear(0);
+	  ToolbarSet(2,"Start File",Sample%);
+			ToolbarText("**NOT SAMPLING**  "+info$);
+	endif;
+END
+
+FUNC Sample%() 'Start to sample
+	var n$,seq%;
+
+	if FileOpen("c:\\Program Files\\Spike5\\Configuration Files\\ScotomaMap.S2C",6)<0 then     'LOAD SAMPLING CONFIG
+		FilePathSet("c:\\Program Files\\Spike5\\Configuration Files\\");
+		Message ("Please find \"ScotomaMap.S2C\"");
+		FileOpen("",6);  ' we need to find & identify missing file
+	endif;
+	seq%:=	FileOpen("c:\\Program Files\\Spike5\\Matt\\TrialSaccadesTesting.pls",2);
+	if seq%<0 then     'LOAD SAMPLING CONFIG
+		FilePathSet("c:\\Program Files\\Spike5\\Matt\\");
+		Message ("Please find \"TrialSaccades.pls\"");
+		FileOpen("",2);  ' we need to find & identify missing file
+	endif;
+	SampleSequencer(FileName$());
+	SampleSeqVar(22, 100); ' V22 is targetGain
+
+	vh%:=FileNew(0,0); 'Open data file
+	if (vh%>0) then  'if opened ok
+		XRange(0,10);
+		YRange(1,-25,25);
+		YRange(2,-25,25);
+		YRange(3,-25,25);
+		YRange(4,-25,25);
+		YRange(7,-25,25);
+		YRange(8,-25,25);
+		YRange(9,-25, 25);
+		YRange(10,-25, 25);
+		YRange(11,0, 10);
+		YRange(12,0, 10);
+		YRange(13,-10, 10);
+		YRange(14,-10, 10);
+		YRange(17,-5, 5);
+		ChanWeight(7,0.33);
+		ChanWeight(8,0.33);
+'		ChanWeight(11,0.33);
+'		ChanWeight(12,0.33);
+		ChanWeight(13,0.33);
+		ChanWeight(14,0.33);
+
+		Colour(0,0);   'Set item colour
+   	Colour(1, 0);
+		Colour(2,38);   'Set item colour
+		Colour(3,6);   'Set item colour
+		Colour(4,6);   'Set item colour
+		Colour(5,6);   'Set item colour
+		Colour(7,6);   'Set item colour
+		Colour(8,6);   'Set item colour
+'		Colour(11,0);   'Set item colour
+'		Colour(12,6);   'Set item colour
+		Colour(13,6);   'Set item colour
+		Colour(14,6);   'Set item colour
+		Colour(17,6);   'Set item colour
+		Colour(26,6);   'Set item colour
+		Colour(27,6);   'Set item colour
+		Colour(28,6);   'Set item colour
+		Colour(30,6);   'Set item colour
+		Colour(31,6);   'Set item colour
+		Colour(33,18);   'Set item colour
+		ChanSelect(1,1);
+		ChanSelect(9,1);
+		ChanOrder(3,0,-3);   'Move selected channels
+		YAxisLock(3,1);
+		ChanSelect(1,0);
+		ChanSelect(9,0);
+		ChanSelect(2,1);
+		ChanSelect(10,1);
+		ChanOrder(4,0,-3);   'Move selected channels
+		YAxisLock(4,1);
+		ChanSelect(2,0);
+		ChanSelect(10,0);
+		
+
+		ChanColour(10,1,16);   'Set channel colour
+		ChanColour(9,1,16);   'Set channel colour
+		ChanColour(2,1,18);   'Set channel colour
+		ChanColour(1,1,18);   'Set channel colour
+		
+		
+		'Window(0,0,75,95);
+		'WindowVisible(2);
+		SampleWrite(0);
+    	if SampleStart()>=0 then
+			WindowVars();
+			RewardVars();
+      	Labels(1); 'fix up sampling labels
+			YAxisMode(4096);
+			'XScroller(0);
+			Window(0,0,73,98);
+			WindowVisible(1);
+			vhXYScope%:=FileNew(12,0);
+			Window(73,0,100,40);
+			Xrange(-50,50);
+			Yrange(1,-50,50);
+			CursorNew(0,1);
+			CursorLabel(0);
+			HCursorNew(0,0);
+			HCursorLabel(0);
+			XYDrawMode(0,5,0);  'turn off automatic axes
+			View(vhXYscope%);
+			XYScopeChans();
+			WindowVisible(1);
+			
+			View(vh%);
+			SampleText(date$()  +"  "+time$());
+		else         'a problem...
+			CloseView(); '...so tidy up
+			Message("sampling problem");
+		endif;
+	else
+		Message("can't open new file");
+	endif;
+	return 1;      'RETURN TO active Toolbar
+END
+
+FUNC XYScope%()		
+	var dummy%;	
+	if not vhXYscope% then  ' no scope up yet
+		return 1
+	endif;
+	DlgCreate("Window Parameters",77,25);
+ 	DlgCheck(1,"Left Eye",2,1);
+	DlgCheck(2," Right Eye",2,2);
+
+	DlgCheck(3,"Target",2,4);
+	DlgCheck(4,"Window",2,3);
+	DlgCheck(5,"Target 2 or Background",2,5);
+	DlgText("Persistence",2,6);	
+	DlgInteger(6,6,1,50000,14,6);
+
+	DlgText("Window Width",21,1);	
+	DlgText("Offset",40,1);
+	DlgText("Horiz",23,2);	
+ 	DlgText("Vert",23,3);	
+ 	'DlgText("Horiz",25,5);	
+ 	'DlgText("Vert",25,6);	
+
+	DlgReal(7 ,4,0,150,30,2);'her width
+	DlgReal(8 ,4,0,150,30,3);'ver width
+
+	DlgReal(9,4,-40,40,40,2);'her offset
+	DlgReal(10,4,-40,40,40,3);'ver offset
+
+
+
+	if DlgShow(XYeyeL%,XYeyeR%,XYTarg%,XYwin%,XYBg%,XYpers%,WinWid[],WinOff[]) then
+		WindowVars();
+		XYScopeChans();
+	endif;
+	return 1
+END
+FUNC Reward%()		
+	if not vhXYscope% then  ' no scope up yet
+		return 1
+	endif;
+	DlgCreate("Reward Parameters",65,23,80);',30,30,100);
+ 	DlgReal(1,"Minimum Time On Target (must be shorter than stim display time)",200,10000,55);
+ 	DlgReal(2,"Maximum Time Off Target (blank)",35,1000,55);
+ 	DlgReal(3,"Feed Time",.4,10000,55);
+	DlgReal(4,"Next Step",1,5000,55);
+	DlgCheck(5,"3x feed time at 60deg left/right");
+
+	DlgText("ms",70,1);	
+	DlgText("ms",70,2);
+	DlgText("ms",70,3);
+	DlgText("V",70,6);
+	DlgText("ms",70,7);
+	DlgText("Rewards",70,4);
+	if DlgShow(TOn,TOff,TFeed,TNextStep,longFeed%) then
+		if TOff>=TOn then
+			Message("TOn must be higher than TBlank");
+			return 1
+		endif
+		RewardVars();
+	endif;
+	return 1
+END
+
+PROC RewardVars()
+	SampleSeqVar(11,Ton/11);
+	SampleSeqVar(12,TFeed*10);
+	SampleSeqVar(13,Toff/11);
+	SampleSeqVar(18,TNextStep);
+	var p15%;
+    p15%:=Pow(2,15);
+END
+
+
+
+
+
+PROC WindowVars();
+		var p15%;
+		p15%:=Pow(2,15);
+		SampleSeqVar( 3,WinOff[0] * p15% / 100); 'Load variables, 
+	 	SampleSeqVar( 4,WinOff[1]  * p15% / 100);
+		SampleSeqVar( 7,WinWid[0] * p15% / 200); 
+	 	SampleSeqVar( 8,WinWid[1] * p15% / 200);
+
+		SampleSeqVar(23, hOffsetL * p15% / 100);
+		SampleSeqVar(24, hGainL * 1024 / 20);
+		SampleSeqVar(25, vOffsetL * p15% / 100);
+		SampleSeqVar(26, vGainL *1024 / 20);
+
+		SampleSeqVar(27, hOffsetR * p15% / 100);
+		SampleSeqVar(28, hGainR * 1024 / 20);
+		SampleSeqVar(29, vOffsetR * p15% / 100);
+		SampleSeqVar(30, vGainR *1024 / 20);
+
+END
+
+PROC XYScopeChans()
+	var i%;
+	var list%[6];
+	View(vhXYscope%);
+	Chanlist(list%[]);
+	for i%:=list%[0] to 1 step -1 do
+		ChanDelete(list%[i%]);
+	next
+
+	if XYeyeL% then
+		xysc1%:=XYSetChan(1,-XYpers%,0,0,13);
+		XYDrawMode(xysc1%,2,10);  'size
+		XYDrawMode(xysc1%,1,4);  'symbol
+		'XYDrawMode(xysc1%,4,3);  'line thickness
+	endif
+
+	if XYeyeR% then
+		xysc2%:=XYSetChan(0,-XYpers%,0,0,16);
+		XYDrawMode(xysc2%,2,10);  'size
+		XYDrawMode(xysc2%,1,4);  'symbol
+		'XYDrawMode(xysc2%,4,3);  'line thickness
+	endif
+
+	if XYTarg% then
+		xysc3%:=XYSetChan(0,-XYpers%,0,0,8);
+		XYDrawMode(xysc3%,2,10);  
+		XYDrawMode(xysc3%,1,5);
+		'XYDrawMode(xysc3%,4,10);  'line thickness
+	endif
+
+	if XYBg% then
+		xysc4%:=XYSetChan(0,-XYpers%,0,0,8);
+		XYDrawMode(xysc4%,2,10);  
+		XYDrawMode(xysc4%,1,1);
+		'XYDrawMode(xysc3%,4,10);  'line thickness
+	endif
+
+	if XYwin% then
+		xysc5%:=XYSetChan(0,-4,0,2,30);
+		XYDrawMode(xysc5%,2,0);  'size
+		'XYDrawMode(xysc5%,1,5);
+		For i%:= 0 to 3 do
+			Winx[i%]:=WinOff[0]+(0.5*XwinLUT[i%]*WinWid[0]);
+			Winy[i%]:=WinOff[1]+(0.5*YwinLUT[i%]*WinWid[1]);
+		next		
+	endif
+
+End
+
+FUNC IDLEPROC%()   'IDLE PROC..i.e.this happens while no buttons are being pressed
+	var writeinfo$,timevar, work[100],chanval[8];
+    var i%,j%,k%,m%,n%,o%,currcount%,lastT,maxT;
+    'var targetColor;  added 2011-12-07 for XY plot cross color change
+
+	if SampleStatus()=2 then    'if sampling, update text bar
+		if SampleWrite(-1) then writeinfo$:="---writing to disk---";'°
+		else                    writeinfo$:="****NOT WRITING TO DISK****";
+				if View(vh%).MaxTime() mod 30 < .3 then  
+						Sound(520,.01);
+						Sound(500,.01);
+				endif;
+		endif;
+		'ToolbarText(writeinfo$+info$+"["+symbolLE$+symbolRE$+"]");
+	else  ToolbarText("**NOT SAMPLING**");
+	endif;
+	
+	if(longFeed%>0) then
+		'increase feed time at eccentric locations
+		View(vh%);
+		SampleSeqVar(12,TFeed*10 + abs(2.0*TFeed*10.0 * (0.5+0.5*sin(1.5*3.1415926+3.1415926*ChanValue(3, MaxTime())/60.0)))  );'hTarg channel'raised sine
+	endif;
+
+  	if vhxyscope% then
+ 		View(vh%);
+		timevar:=MaxTime();
+		if XYeyeL% then
+			chanval[0]:=ChanValue(1,timevar);
+			chanval[1]:=ChanValue(2,timevar);
+		endif
+
+		if XYeyeR% then
+			chanval[4]:=ChanValue(9,timevar);
+			chanval[5]:=ChanValue(10,timevar);
+		endif
+		
+		if XYTarg% then
+			chanval[2]:=ChanValue(3,timevar);
+			chanval[3]:=ChanValue(4,timevar);
+		endif
+
+		if XYBg% then
+			chanval[6]:=ChanValue(7,timevar);
+			chanval[7]:=ChanValue(8,timevar);
+		endif
+	
+		View(vhxyscope%);
+		if XYeyeL% then
+			XYAddData(XYsc1%,chanval[0],chanval[1]);
+		endif
+
+		if XYeyeR% then
+			XYAddData(XYsc2%,chanval[4],chanval[5]);
+        endif
+    
+        'Added 2012_8_21 To change color of XY representation of central cross
+        
+        targColor%:=SampleSeqVar(41); 
+        if targColor%>10000 then
+             XYColour(xysc3%,16);        
+        else
+            if targColor%<-1 then
+                XYColour(xysc3%,24);
+            else
+                XYColour(xysc3%,32);
+            endif
+        endif
+    
+		if XYTarg% then
+			XYAddData(XYsc3%,chanval[2],chanval[3]);
+        endif
+    
+        'Added 2012_8_21 To change color of XY representation of peripheral target
+        
+        periColor%:=SampleSeqVar(41);
+        if periColor%>10000 then
+             XYColour(xysc4%,16);        
+        else
+            if periColor%<-1 then
+                XYColour(xysc4%,24);
+            else
+                XYColour(xysc4%,32);
+            endif
+        endif                   'end added section
+    
+
+		if XYBg% then
+			XYAddData(XYsc4%,chanval[6],chanval[7]);
+		endif
+
+		if XYwin% then
+			for O%:=0 to 3 do
+				XYAddData(XYsc5%,chanval[2]+winX[o%],chanval[3]+winY[o%]);
+			next
+		endif
+
+		'UpdateXYWin();	
+ 	endif
+
+	return 1;
+END
+
+'Procedure for auto-scaling the axes in the XY View
+
+'PROC UpdateXYWin()
+	'	var xLoScp, yLoScp, xHiScp, yHiScp; 'update XY window range if necessary
+	'	var xLWScp, yLWScp, xHWScp, yHWScp;  'use integers for speed cuz its not precision-critical
+	'	var yRnge,yMean,xmeandat;
+	'	View(vhxyscope%);
+	'	WindowGetPos(xLWScp, yLWScp, xHWScp, yHWScp);
+	'	xLoScp:=XLow();yLoScp:=YLow(0);xHiScp:=XHigh();yHiScp:=YHigh(0);
+	'	if 	abs(yLoScp-gYLoScp)>.01  'if the y scale changed
+	'	 OR abs(xLoScp-gXLoScp)>.01    'if the x scale changed
+	'	 OR abs(xLWscp-gxLWscp)>.01  'or if the window changed
+	' 	 OR abs(xHWscp-gxHWscp)>.01 
+	'	 OR abs(yLWscp-gyLWscp)>.01 
+	'	 OR abs(yHWscp-gyHWscp)>.01  then
+	'		yRnge:=(YHiScp-YLoScp);
+	'		yMean :=(YHiScp+YLoScp)/2;
+	'		var xLoDat,yLoDat,xHiDat,yHiDat,SF;
+	'		XYRange(1,xLoDat,yLoDat,xHiDat,yHiDat);  'get the data range
+	'		xMeanDat:=(xHiDat+xLoDat)/2;
+	'		SF:=.8*(yRnge)/(yHWScp-yLWScp);   'scale factor in terms of degrees per window size
+	'		XRange( xMeanDat-SF*(xHWScp-xLWScp),xMeanDat+SF*(xHWScp-xLWScp) );
+	'		gxLoScp:=xLoScp;gyLoScp:=YLoScp;gxHiScp:=xHiScp;gyHiScp:=yHiScp;  'set globals 
+	'		gxLWScp:=xLWScp;gyLWScp:=YLWScp;gxHWScp:=xHWScp;gyHWScp:=yHWScp;
+	'	endif
+'END
+
+FUNC DiskWrite%()
+	var sw%;
+	sw%:=SampleWrite(-1);
+	SampleWrite(not sw%);
+	if sw% then
+		ToolbarSet(3, "NOT SAVING DATA",Diskwrite%);
+	else
+		ToolbarSet(3, "SAVING DATA",Diskwrite%);
+	endif
+
+	return 1
+END
+
+PROC CloseView()
+	var XYlist%[30],PHlist%[30],i%;
+	if vh%>0 then   'if view exists
+		View(vh%);   'select it 
+		FileClose(); 'close it,asking
+	endif
+	'if (inth%)then
+		'View (inth%);
+	'	'FileClose(0,-1); 'close w/o asking
+	'endif
+	if (vhxyscope%)then
+		View (vhxyscope%);
+		'FileClose(0,-1); 'close w/o asking
+		FileClose(); 'close with asking
+	endif
+	ViewList(XYlist%[],4096); 'xy views
+	for i%:=0 to XYlist%[0] do
+		View(XYlist%[i%+1]);
+ 	  	if not FileClose() then 'if user doesn't click No
+			FileSaveAs("XY",12,1);
+		endif
+	next
+	ViewList(PHlist%[],16); 'phase histogram views
+	for i%:=0 to PHlist%[0] do
+		View(PHlist%[i%+1]);
+ 	  	FileClose(0,-1); 'close it w/o asking
+	next	  	
+	info$:="";
+	vh%:=0;    'now gone
+	vhxyscope%:=0;
+	vhPH%:=0;
+	'vhXYhist%:=0;
+END
+
+FUNC OnQuit%()     'User wants to exit
+	if SampleStatus()>=0 then 
+		OnStop%();
+		return 0;          'Cancel the toolbar
+	endif
+	return 0;
+END
+
+FUNC OnStop%();    'User wants to stop sampling but not quit
+	var list%[4],i%,titlelen%,titlebase$,title$;
+	var xytitle$,xytitlebase$,xytitlebaseEnd%;
+		 SampleStop();
+   View(vh%);
+   if FileSaveAs("",-1,0,"Save the data")=0 then
+		title$:=WindowTitle$();
+		titlelen%:=Len(title$);
+		titlebase$:=Left$(title$,titlelen%-4);
+		if Count(30,0,MaxTime())>0 then
+'			GetNotebook();
+		endif
+		if ViewList(list%[],4096) then 'can make a list of XY views
+			for i%:=1 to list%[0] do
+				View(list%[i%]);
+				xytitle$:=WindowTitle$();
+				xytitlebaseEnd%:=InStr(xytitle$,": ");
+				xytitlebase$:=Left$(xytitle$,xytitlebaseEnd%-1);
+				if ViewKind()=12 then
+					FileSaveAs(titlebase$+xytitlebase$+"?",-1,0,"save the XY view");
+				endif;
+			next;
+		endif
+   endif
+   CloseView(); 
+   Labels(0);      'Toolbar indicates 'not sampling'
+	return 1;       'Don't halt
+END
+
+
+FUNC Feed%();
+	SampleSeqVar(20, 1);
+	return 1;
+END
+
+FUNC Buzz%();
+	SampleSeqVar(47, 1);
+	return 1;
+END
+
+
+FUNC DoCalibration%();
+	
+
+	DlgCreate("Calibration Controls",78,22);',30,30,100);
+
+ 	DlgReal(1,"Left Eye H-Gain",-100,100,30, 1, 1);
+ 	DlgReal(2,"Left Eye H-Offset",-100,100,30, 2, 1);
+ 	DlgReal(3,"Left Eye V-Gain",-100,100,30, 4, 1);
+ 	DlgReal(4,"Left Eye V-Offset",-100,100,30, 5, 1);
+	
+	DlgReal(5,"Right Eye H-Gain",-100,100,30, 7, 1);
+ 	DlgReal(6,"Right Eye H-Offset",-100,100,30, 8, 1);
+ 	DlgReal(7,"Right Eye V-Gain",-100,100,30, 10, 1);
+ 	DlgReal(8,"Right Eye V-Offset",-100,100,30, 11, 1);
+
+
+	DlgAllow(1023, 0, UpdateCalibration%);
+	DlgShow(hGainL, hOffsetL, vGainL, vOffsetL, hGainR, hOffsetR, vGainR, vOffsetR);
+	WindowVars();
+
+		
+
+	return 1;
+END
+
+
+
+FUNC UpdateCalibration%(item%);
+
+	var p15%;
+		p15%:=Pow(2,15);
+
+
+docase
+	case item% = 1 then
+		hGainL := DlgValue(item%);
+		View(vh%).ChanScale(1, hGainL);
+		SampleSeqVar(24, (hGainL * 1024 / 20));
+
+	case item% = 2 then
+		hOffsetL := DlgValue(item%);
+		View(vh%).ChanOffset(1, hOffsetL);
+		SampleSeqVar( 23, hOffsetL * p15% / 100);
+	case item% = 3 then
+		vGainL := DlgValue(item%);
+		View(vh%).ChanScale(2, vGainL*-1);
+		SampleSeqVar(26, (vGainL * 1024 / 20));
+	case item% = 4 then
+		vOffsetL := DlgValue(item%);
+		View(vh%).ChanOffset(2, vOffsetL);
+		SampleSeqVar(25, vOffsetL * p15% / 100);
+	case item% = 5 then
+		hGainR := DlgValue(item%);
+		View(vh%).ChanScale(9, hGainR);
+		SampleSeqVar(28, (hGainR * 1024 / 20));
+	case item% = 6 then
+		hOffsetR := DlgValue(item%);
+		View(vh%).ChanOffset(9, hOffsetR);
+		SampleSeqVar(27, hOffsetR * p15% / 100);
+	case item% = 7 then
+	   vGainR := DlgValue(item%);
+		View(vh%).ChanScale(10, vGainR*-1);
+		SampleSeqVar(30, (vGainR * 1024 / 20));
+	case item% = 8 then
+		vOffsetR := DlgValue(item%);
+		View(vh%).ChanOffset(10, vOffsetR);
+		SampleSeqVar(29, vOffsetR * p15% / 100);
+	endcase;
+
+
+
+
+return 1;
+END
+
+

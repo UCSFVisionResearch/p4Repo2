@@ -1,0 +1,2440 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\EyeTracking.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "EyeTracking.ico"
+IDI_ICON1               ICON                    "icon1.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About EyeTracking"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "EyeTracking Version 1.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2003",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
+END
+
+IDD_EYETRACKING_DIALOG DIALOGEX 0, 0, 699, 479
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_OVERLAPPEDWINDOW | WS_EX_APPWINDOW
+CAPTION "EyeTracking"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Run",ID_RUN,584,456,50,16
+    PUSHBUTTON      "Exit",ID_EXIT,642,456,50,16
+    CONTROL         "",IDC_TABS,"SysTabControl32",TCS_MULTILINE | TCS_TOOLTIPS,7,7,685,413
+    PUSHBUTTON      "Load Settings",IDC_LoadSettings,15,456,65,16
+    PUSHBUTTON      "Save Settings",IDC_SaveSettings,15,438,65,16
+    PUSHBUTTON      "Make Default",IDC_MakeDefault,83,438,65,16
+    PUSHBUTTON      "Load Default",IDC_LoadDefault,83,456,65,16
+    PUSHBUTTON      "Dot Color",IDC_DotColor,161,439,66,14
+    CONTROL         "",IDC_DotPic,"Static",SS_BLACKFRAME | WS_BORDER,209,452,20,20
+    LTEXT           "Dot RGB",IDC_DotText,167,455,70,8
+    PUSHBUTTON      "Background Color",IDC_BackgroundColor,239,438,66,14
+    LTEXT           "Background RGB",IDC_BackgroundText,236,454,86,8
+    CONTROL         "",IDC_BackgroundPic,"Static",SS_BLACKFRAME | WS_BORDER,295,452,20,20
+    LTEXT           "Stimulus X Offset (deg)",IDC_StimXStatic,325,444,75,8
+    LTEXT           "Stimulus Y Offset (deg)",IDC_StimYStatic,323,456,75,8
+    EDITTEXT        IDC_StimX,403,441,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_StimY,403,456,40,14,ES_AUTOHSCROLL
+    CONTROL         "",IDC_StimXSpin,"msctls_updown32",UDS_ARROWKEYS,451,440,11,14
+    CONTROL         "",IDC_StimYSpin,"msctls_updown32",UDS_ARROWKEYS,449,458,10,14
+    PUSHBUTTON      "Apply Global Settings",IDC_ApplySettings,577,439,76,14
+    LTEXT           "Screen X Offset (deg)",IDC_ScreenXStatic,464,442,71,8
+    LTEXT           "Screen Y Offset (deg)",IDC_ScreenYStatic,462,458,71,8
+    EDITTEXT        IDC_ScreenX,524,439,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ScreenY,523,459,40,14,ES_AUTOHSCROLL
+    CONTROL         "",IDC_ScreenXSpin,"msctls_updown32",UDS_ARROWKEYS,565,439,10,14
+    CONTROL         "",IDC_ScreenYSpin,"msctls_updown32",UDS_ARROWKEYS,565,458,11,14
+    PUSHBUTTON      "Raise/Lower",IDC_ShutterL,366,458,50,14
+    PUSHBUTTON      "Raise/Lower",IDC_ShutterR,488,458,50,14
+    LTEXT           "Left Shutter: init",IDC_ShutterLState,616,434,65,8
+    LTEXT           "Right Shutter: init",IDC_ShutterRState,616,443,76,8
+END
+
+IDD_SACCADE_DLG DIALOGEX 10, 40, 593, 443
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Dot Size (deg)",IDC_STATIC,23,26,46,8
+    LTEXT           "Step Size (deg)",IDC_STATIC,23,50,50,8
+    LTEXT           "Number of Steps X",IDC_STATIC,23,75,60,8
+    LTEXT           "Display Duration (ms)",IDC_STATIC,23,123,69,8
+    CONTROL         "Return to Point",IDC_CheckReturnToPt,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,210,28,65,10
+    LTEXT           "X (deg)",IDC_STATIC,217,47,25,8
+    LTEXT           "Y (deg)",IDC_STATIC,297,47,23,8
+    CONTROL         "Use all directions",IDC_CheckUseAllDir,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,72,69,10
+    GROUPBOX        "Step Orientation",IDC_STATIC,198,86,117,48
+    GROUPBOX        "Oblique Distance Type",IDC_STATIC,328,86,106,48
+    CONTROL         "Radial Distance",IDC_RadioRadial,"Button",BS_AUTORADIOBUTTON | WS_GROUP,342,100,65,10
+    CONTROL         "XY Steps",IDC_RadioXY,"Button",BS_AUTORADIOBUTTON | WS_GROUP,343,116,44,10
+    PUSHBUTTON      "Apply Changes",IDC_ButtonApply,513,414,65,14
+    EDITTEXT        IDC_EditDotSize,115,23,45,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EditStepSize,115,48,46,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EditNumSteps,115,72,45,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EditDuration,115,120,45,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EditPointY,324,44,42,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EditPointX,245,44,42,14,ES_AUTOHSCROLL
+    CONTROL         "Horizontal",IDC_CheckHorizontal,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,206,98,48,10
+    CONTROL         "Vertical",IDC_CheckVertical,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,206,116,39,10
+    CONTROL         "45 Degrees",IDC_Check45Deg,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,260,98,49,10
+    CONTROL         "135 Degrees",IDC_Check135Deg,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,260,116,53,10
+    GROUPBOX        "",IDC_STATIC,198,18,236,48
+    CONTROL         "Randomize Durations",IDC_RANDOM_DURATIONS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,22,218,83,10
+    LTEXT           "Minimum Duration (ms)",IDC_STATIC,24,237,73,8
+    LTEXT           "Maximum Duration (ms)",IDC_STATIC,24,255,76,8
+    EDITTEXT        IDC_MIN_DURATION,116,233,45,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MAX_DURATION,116,251,46,14,ES_AUTOHSCROLL
+    GROUPBOX        "",IDC_STATIC,15,211,158,60
+    GROUPBOX        "Oscillations",IDC_STATIC,197,139,236,73
+    CONTROL         "Enable",IDC_EnableOscillations,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,212,152,37,10
+    LTEXT           "Amplitude (deg)",IDC_STATIC,212,170,52,8
+    LTEXT           "Frequency (c/s)",IDC_STATIC,212,192,52,8
+    EDITTEXT        IDC_OscillationAmplitude,273,167,45,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OscillationFreq,273,189,45,14,ES_AUTOHSCROLL
+    CONTROL         "Vertical",IDC_RadioVertical,"Button",BS_AUTORADIOBUTTON | WS_GROUP,354,166,39,10
+    CONTROL         "Horizontal",IDC_RadioHorizontal,"Button",BS_AUTORADIOBUTTON | WS_GROUP,354,152,48,10
+    CONTROL         "45 Degree",IDC_Radio45Deg,"Button",BS_AUTORADIOBUTTON | WS_GROUP,354,181,49,10
+    CONTROL         "135 Degree",IDC_Radio135Deg,"Button",BS_AUTORADIOBUTTON | WS_GROUP,354,195,53,10
+    CONTROL         "Enable Behaviorally Contingent Saccades",IDC_Check_Behvaior,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,213,231,147,10
+    GROUPBOX        "Behaviorally Contingent",IDC_STATIC,199,218,233,49
+    LTEXT           "Max Display Duration (ms)",IDC_STATIC,213,248,84,8
+    EDITTEXT        IDC_MaxDisplayDuration,300,244,43,14,ES_AUTOHSCROLL
+    LTEXT           "Blank Time (ms)",IDC_STATIC,23,149,50,8
+    EDITTEXT        IDC_BlankTime,115,144,45,14,ES_AUTOHSCROLL
+    LTEXT           "JitterX (deg)",IDC_STATIC,23,172,41,8
+    EDITTEXT        IDC_JITTER,115,168,45,14,ES_AUTOHSCROLL
+    CONTROL         "Avoid Zero Point",IDC_AVOID_ZERO,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,279,69,10
+    LTEXT           "JitterY (deg)",IDC_STATIC,24,196,41,8
+    EDITTEXT        IDC_JITTERY,115,193,45,14,ES_AUTOHSCROLL
+    GROUPBOX        "Primary Color",IDC_STATIC,447,98,139,77
+    LTEXT           "Red (0-255)",IDC_STATIC,461,116,40,8
+    LTEXT           "Green (0-255)",IDC_STATIC,461,137,46,8
+    LTEXT           "Blue (0-255)",IDC_STATIC,461,157,40,8
+    EDITTEXT        IDC_EditRed,509,114,45,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EditGreen,509,134,45,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EditBlue,509,153,45,14,ES_AUTOHSCROLL
+    GROUPBOX        "Secondary Color",IDC_STATIC,447,190,139,77
+    LTEXT           "Red (0-255)",IDC_STATIC,461,206,40,8
+    LTEXT           "Green (0-255)",IDC_STATIC,461,226,46,8
+    LTEXT           "Blue (0-255)",IDC_STATIC,461,246,40,8
+    EDITTEXT        IDC_EditRedSec,509,203,45,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EditGreenSec,509,222,45,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EditBlueSec,509,241,45,15,ES_AUTOHSCROLL
+    CONTROL         "Primary Color Only",IDC_RadioPrimary,"Button",BS_AUTORADIOBUTTON | WS_GROUP,469,33,75,10
+    CONTROL         "Secondary Color Only",IDC_RadioSecondary,"Button",BS_AUTORADIOBUTTON | WS_GROUP,469,48,85,10
+    CONTROL         "Alternate",IDC_RadioAlternate,"Button",BS_AUTORADIOBUTTON | WS_GROUP,469,63,46,10
+    GROUPBOX        "Dot Colors",IDC_STATIC,448,20,121,72
+    CONTROL         "Randomize",IDC_RadioRandom,"Button",BS_AUTORADIOBUTTON | WS_GROUP,469,78,51,10
+    LTEXT           "Number of Steps Y",IDC_STATIC,23,99,60,8
+    EDITTEXT        IDC_EditNumStepsY,115,95,45,14,ES_AUTOHSCROLL
+    CONTROL         "",IDC_PrimaryStatic,"Static",SS_BLACKFRAME | WS_BORDER,559,113,23,23
+    CONTROL         "",IDC_SecondaryStatic,"Static",SS_BLACKFRAME | WS_BORDER,557,203,25,25
+    CONTROL         "Grid",IDC_GridSteps,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,283,72,29,10
+    CONTROL         "Dot",IDC_PointDot,"Button",BS_AUTORADIOBUTTON,383,26,27,10
+    CONTROL         "Landolt C",IDC_PointLandoltC,"Button",BS_AUTORADIOBUTTON,383,38,46,10
+    CONTROL         "E",IDC_PointE,"Button",BS_AUTORADIOBUTTON,383,50,20,10
+    CONTROL         "Sequential Order",IDC_SequentialOrder,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,295,70,10
+    EDITTEXT        IDC_saccadeNoiseSize,246,344,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_saccadeNoisePercent,310,344,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_saccadeNoiseRed,278,368,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_saccadeNoiseGreen,278,384,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_saccadeNoiseBlue,278,400,40,14,ES_AUTOHSCROLL
+    CONTROL         "Display Noise Background",IDC_saccadeDisplayNoise,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,207,282,97,14
+    LTEXT           "Red (0-255)",IDC_STATIC,233,370,40,9
+    LTEXT           "Green (0-255)",IDC_STATIC,226,386,46,9
+    LTEXT           "Blue (0-255)",IDC_STATIC,232,402,40,9
+    CONTROL         "",IDC_saccadeNoiseStatic,"Static",SS_BLACKFRAME | WS_BORDER,329,369,22,22
+    GROUPBOX        "Background  Noise",IDC_STATIC,199,274,156,150
+    LTEXT           "Size (pixels)",IDC_STATIC,246,332,39,8
+    LTEXT           "Percent (1-100)",IDC_STATIC,299,333,52,8
+    CONTROL         "Alternate noise/blank backgrounds",IDC_saccadeAlternateNoise,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,220,307,125,10
+    CONTROL         "Use same background during trial",IDC_saccadeSameBgTrial,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,220,296,122,10
+    CONTROL         "Occlude background pattern",IDC_saccadeOccludeBG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,220,318,107,10
+END
+
+IDD_PURSUIT_DLG DIALOGEX 10, 40, 450, 282
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Amplitude (deg)",IDC_STATIC,21,57,52,8
+    LTEXT           "Frequency (c/s)",IDC_STATIC,21,83,52,8
+    LTEXT           "Dot Size (deg)",IDC_STATIC,21,123,46,8
+    EDITTEXT        IDC_EditAmplitude,79,55,50,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EditFrequency,79,80,50,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EditSize,79,120,50,15,ES_AUTOHSCROLL
+    CONTROL         "Vertical",IDC_RadioVertical,"Button",BS_AUTORADIOBUTTON | WS_GROUP,300,74,39,10
+    GROUPBOX        "Oscillation Orientation",IDC_STATIC,294,41,134,48
+    CONTROL         "Horizontal",IDC_RadioHorizontal,"Button",BS_AUTORADIOBUTTON | WS_GROUP,300,56,48,10
+    CONTROL         "45 Degree",IDC_Radio45Deg,"Button",BS_AUTORADIOBUTTON | WS_GROUP,360,56,49,10
+    CONTROL         "135 Degree",IDC_Radio135Deg,"Button",BS_AUTORADIOBUTTON | WS_GROUP,360,74,53,10
+    GROUPBOX        "Waveform",IDC_STATIC,293,95,135,48
+    CONTROL         "Sinewave",IDC_RadioSinewave,"Button",BS_AUTORADIOBUTTON | WS_GROUP,300,109,47,10
+    CONTROL         "Triangle Wave / Constant Velocity",IDC_RadioTriangle,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,300,125,125,10
+    PUSHBUTTON      "Apply Changes",IDC_ButtonApply,301,252,60,14
+    GROUPBOX        "Basic Motion",IDC_STATIC,14,42,126,98
+    EDITTEXT        IDC_HighFreqAmplitude,222,80,45,15,ES_AUTOHSCROLL
+    LTEXT           "Amplitude (deg)",IDC_STATIC,162,83,52,8
+    LTEXT           "Frequency (c/s)",IDC_STATIC,162,108,52,8
+    EDITTEXT        IDC_HighFreq,222,105,45,15,ES_AUTOHSCROLL
+    CONTROL         "Enable",IDC_EnableHighFreq,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,162,60,37,10
+    GROUPBOX        "High Frequency Motion",IDC_STATIC,149,46,130,95
+    GROUPBOX        "Extras",IDC_STATIC,14,147,286,48
+    CONTROL         "Replace dot with letter",IDC_UseString,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,159,89,10
+    LTEXT           "String:",IDC_STATIC,23,174,22,8
+    EDITTEXT        IDC_TextString,49,173,241,14,ES_AUTOHSCROLL
+    GROUPBOX        "Color Change",IDC_STATIC,14,214,175,61
+    LTEXT           "Eccentricity (Deg)",IDC_STATIC,19,230,58,8
+    LTEXT           "R",IDC_STATIC,117,225,8,8
+    LTEXT           "G",IDC_STATIC,117,242,8,8
+    LTEXT           "B",IDC_STATIC,117,258,8,8
+    EDITTEXT        IDC_Eccentricity,19,241,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ChangeG,135,239,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ChangeB,135,256,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ChangeR,135,222,40,14,ES_AUTOHSCROLL
+    LTEXT           "<=0 to disable",IDC_STATIC,19,260,48,8
+    CONTROL         "Alternating (uses Color Change color, but disables eccentricity change)",IDC_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,195,214,244,19
+    CONTROL         "Pursuit to check calibration",IDC_CalibrationCheckPursuit,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,102,98,10
+END
+
+IDD_CALIBRATION_DLG DIALOGEX 10, 40, 413, 274
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Dot Size (deg)",IDC_STATIC,48,82,46,8
+    LTEXT           "Separation (deg)",IDC_STATIC,48,119,55,8
+    EDITTEXT        IDC_EditSize,127,78,74,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_HSeparation,127,117,29,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Apply Changes",IDC_BUTTON1,196,211,61,14
+    CONTROL         "Show All Dots",IDC_Check_ShowAll,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,46,168,59,10
+    COMBOBOX        IDC_EYE_LIST,259,79,70,63,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Eye",IDC_STATIC,225,82,13,8
+    LTEXT           "",IDC_STATIC_DEBUG,257,28,29,24
+    LTEXT           "Accept Delay (ms)",IDC_STATIC,48,144,59,8
+    EDITTEXT        IDC_AcceptDelay,127,139,30,14,ES_AUTOHSCROLL
+    CONTROL         "Cycle Through Points",IDC_CHECK_CYCLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,46,216,83,10
+    CONTROL         "",IDC_Dot1,"Button",BS_AUTORADIOBUTTON,124,168,8,8
+    CONTROL         "",IDC_Dot2,"Button",BS_AUTORADIOBUTTON,138,168,8,8
+    CONTROL         "",IDC_Dot3,"Button",BS_AUTORADIOBUTTON,152,168,8,8
+    CONTROL         "",IDC_Dot4,"Button",BS_AUTORADIOBUTTON,124,181,8,8
+    CONTROL         "",IDC_Dot5,"Button",BS_AUTORADIOBUTTON,138,181,8,8
+    CONTROL         "",IDC_Dot6,"Button",BS_AUTORADIOBUTTON,152,181,8,8
+    CONTROL         "",IDC_Dot7,"Button",BS_AUTORADIOBUTTON,124,195,8,8
+    CONTROL         "",IDC_Dot8,"Button",BS_AUTORADIOBUTTON,138,195,8,8
+    CONTROL         "",IDC_Dot9,"Button",BS_AUTORADIOBUTTON,152,195,8,8
+    CONTROL         "Default separation",IDC_CalibrationDefaultSeparation,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,48,103,72,10
+    LTEXT           "H",IDC_STATIC,119,119,8,8
+    EDITTEXT        IDC_VSeparation,172,117,29,14,ES_AUTOHSCROLL
+    LTEXT           "V",IDC_STATIC,164,119,8,8
+END
+
+IDD_SETTINGS_DLG DIALOGEX 10, 40, 450, 283
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Stimulus X Offset (deg)",IDC_STATIC,157,58,75,8,NOT WS_VISIBLE | WS_DISABLED
+    LTEXT           "Stimulus Y Offset (deg)",IDC_STATIC,157,78,75,8,NOT WS_VISIBLE | WS_DISABLED
+    EDITTEXT        IDC_EditXOffset,237,55,41,14,ES_AUTOHSCROLL | NOT WS_VISIBLE | WS_DISABLED
+    EDITTEXT        IDC_EditYOffset,237,75,41,14,ES_AUTOHSCROLL | NOT WS_VISIBLE | WS_DISABLED
+    GROUPBOX        "Dot Color",IDC_STATIC,44,105,192,77,NOT WS_VISIBLE | WS_DISABLED
+    LTEXT           "Red (0-255)",IDC_STATIC,54,124,40,8,NOT WS_VISIBLE | WS_DISABLED
+    LTEXT           "Green (0-255)",IDC_STATIC,54,145,46,8,NOT WS_VISIBLE | WS_DISABLED
+    LTEXT           "Blue (0-255)",IDC_STATIC,54,164,40,8,NOT WS_VISIBLE | WS_DISABLED
+    EDITTEXT        IDC_EditRed,102,121,45,14,ES_AUTOHSCROLL | NOT WS_VISIBLE | WS_DISABLED
+    EDITTEXT        IDC_EditGreen,102,142,45,14,ES_AUTOHSCROLL | NOT WS_VISIBLE | WS_DISABLED
+    EDITTEXT        IDC_EditBlue,102,161,45,14,ES_AUTOHSCROLL | NOT WS_VISIBLE | WS_DISABLED
+    GROUPBOX        "Background Color",IDC_STATIC,263,105,144,77,NOT WS_VISIBLE | WS_DISABLED
+    LTEXT           "Red (0-255)",IDC_STATIC,274,121,40,8,NOT WS_VISIBLE | WS_DISABLED
+    LTEXT           "Green (0-255)",IDC_STATIC,274,142,46,8,NOT WS_VISIBLE | WS_DISABLED
+    LTEXT           "Blue (0-255)",IDC_STATIC,274,161,40,8,NOT WS_VISIBLE | WS_DISABLED
+    EDITTEXT        IDC_EditRedBG,322,119,45,14,ES_AUTOHSCROLL | NOT WS_VISIBLE | WS_DISABLED
+    EDITTEXT        IDC_EditGreenBG,322,138,45,14,ES_AUTOHSCROLL | NOT WS_VISIBLE | WS_DISABLED
+    EDITTEXT        IDC_EditBlueBG,322,158,45,14,ES_AUTOHSCROLL | NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "Apply Changes",IDC_APPLY,193,212,64,14,NOT WS_VISIBLE | WS_DISABLED
+    LTEXT           "Degrees Per Volt",IDC_STATIC,157,39,54,8
+    EDITTEXT        IDC_EditDegPerVolt,237,36,52,14,ES_AUTOHSCROLL
+    LTEXT           "Screen X Offset (deg)",IDC_STATIC,296,58,71,8,NOT WS_VISIBLE | WS_DISABLED
+    LTEXT           "Screen Y Offset (deg)",IDC_STATIC,297,78,71,8,NOT WS_VISIBLE | WS_DISABLED
+    EDITTEXT        IDC_EditScreenXOffset,371,55,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE | WS_DISABLED
+    EDITTEXT        IDC_EditScreenYOffset,371,75,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE | WS_DISABLED
+    LTEXT           "Eye Position (mm)",IDC_STATIC,29,58,58,8
+    LTEXT           "Screen Position (mm)",IDC_STATIC,29,78,68,8
+    EDITTEXT        IDC_EditEyePosition,107,55,41,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EditScreenPosition,107,75,41,14,ES_AUTOHSCROLL
+    LTEXT           "Viewing Distance (mm)",IDC_STATIC,29,39,72,8
+    EDITTEXT        IDC_EditDistance,108,36,40,14,ES_AUTOHSCROLL | WS_DISABLED
+    CONTROL         "",IDC_DotStatic,"Static",SS_BLACKFRAME | NOT WS_VISIBLE | WS_DISABLED | WS_BORDER,153,121,24,23
+    CONTROL         "",IDC_BackgroundStatic,"Static",SS_BLACKFRAME | NOT WS_VISIBLE | WS_DISABLED | WS_BORDER,374,118,26,25
+    PUSHBUTTON      "Full Red",IDC_BUTTON1,183,115,44,14,NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "Full Blue",IDC_BUTTON3,183,131,44,14,NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "Purple",IDC_BUTTON4,183,147,44,14,NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "White",IDC_BUTTON5,183,163,44,14,NOT WS_VISIBLE | WS_DISABLED
+    LTEXT           "100 Pixel Size (mm)",IDC_STATIC,297,39,62,8,NOT WS_VISIBLE
+    EDITTEXT        IDC_PixelSize,371,36,39,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    CONTROL         "",IDC_SPIN1,"msctls_updown32",UDS_ARROWKEYS | NOT WS_VISIBLE | WS_DISABLED,279,55,10,14
+    CONTROL         "",IDC_SPIN2,"msctls_updown32",UDS_ARROWKEYS | NOT WS_VISIBLE | WS_DISABLED,279,75,10,14
+    CONTROL         "",IDC_SPIN3,"msctls_updown32",UDS_ARROWKEYS | NOT WS_VISIBLE | WS_DISABLED,412,55,11,14
+    CONTROL         "",IDC_SPIN4,"msctls_updown32",UDS_ARROWKEYS | NOT WS_VISIBLE | WS_DISABLED,412,75,11,14
+    EDITTEXT        IDC_NSamples,130,200,40,14,ES_AUTOHSCROLL
+    LTEXT           "Number of samples to average: ",IDC_STATIC,23,202,104,8
+    GROUPBOX        "Eye Tracker Input",IDC_STATIC,13,187,171,41
+END
+
+IDD_FULLFIELD_DLG DIALOGEX 10, 40, 450, 283
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Bar Width (deg)",IDC_STATIC,49,39,52,8
+    LTEXT           "Drift Velocity (d / s)",IDC_STATIC,49,63,63,8
+    CONTROL         "Show Fixation Point",IDC_CheckFixation,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,205,41,79,10
+    LTEXT           "Size (deg)",IDC_STATIC,213,85,33,8
+    GROUPBOX        "Fixation Point",IDC_STATIC,202,62,223,100
+    LTEXT           "Red (0-255)",IDC_STATIC,323,85,40,8
+    LTEXT           "Blue (0-255)",IDC_STATIC,323,132,40,8
+    LTEXT           "Green (0-255)",IDC_STATIC,323,108,46,8
+    EDITTEXT        IDC_EditFixationSize,268,81,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EditFixationRed,374,81,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EditFixationGreen,374,105,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EditFixationBlue,374,129,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Drift Direction",IDC_STATIC,48,129,120,42
+    CONTROL         "Up",IDC_RadioUp,"Button",BS_AUTORADIOBUTTON | WS_GROUP,58,142,25,10
+    CONTROL         "Down",IDC_RadioDown,"Button",BS_AUTORADIOBUTTON | WS_GROUP,58,157,34,10
+    CONTROL         "Left",IDC_RadioLeft,"Button",BS_AUTORADIOBUTTON | WS_GROUP,117,142,29,10
+    CONTROL         "Right",IDC_RadioRight,"Button",BS_AUTORADIOBUTTON | WS_GROUP,117,157,33,10
+    EDITTEXT        IDC_EditWidth,113,35,52,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EditVelocity,113,60,52,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Apply Changes",IDC_ButtonApply,157,194,73,14
+    LTEXT           "X Position (deg)",IDC_STATIC,213,108,51,8
+    LTEXT           "Y Position (deg)",IDC_STATIC,213,132,51,8
+    EDITTEXT        IDC_EditFixtionXPos,268,105,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EditFixationYPos,268,129,40,14,ES_AUTOHSCROLL
+    LTEXT           "Duration (sec)",IDC_STATIC,49,86,46,8
+    EDITTEXT        IDC_DURATION,113,85,51,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Start Motion",IDC_ButtonStartMotion,244,193,73,14
+    LTEXT           "Contrast (%)",IDC_STATIC,49,112,44,8
+    EDITTEXT        IDC_EditContrast,113,110,52,14,ES_AUTOHSCROLL
+    CONTROL         "Noise",IDC_Noise,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,53,18,33,10
+    CONTROL         "Use global colors",IDC_useGlobalColors,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,113,17,68,10
+END
+
+IDD_STEPRAMP_DLG DIALOGEX 10, 40, 450, 283
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Dot Size (deg)",IDC_STATIC,65,46,46,8
+    LTEXT           "Step Size (deg)",IDC_STATIC,65,68,50,8
+    LTEXT           "Velocity (d/s)",IDC_STATIC,65,91,43,8
+    LTEXT           "Excursion (deg)",IDC_STATIC,232,46,51,8
+    LTEXT           "On Delay (ms)",IDC_STATIC,232,68,46,8
+    GROUPBOX        "Excursion Direction",IDC_STATIC,60,110,144,137
+    EDITTEXT        IDC_EditDotSize,118,41,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EditStepSize,118,64,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EditVelocity,118,87,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EditExcursion,297,41,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EditDelay,297,64,40,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Apply Changes",IDC_BUTTON1,189,252,77,14
+    LTEXT           "Plateau Delay (ms)",IDC_STATIC,231,115,61,8
+    EDITTEXT        IDC_EditPlateau,297,112,40,14,ES_AUTOHSCROLL
+    LTEXT           "Off Delay (ms)",IDC_STATIC,232,92,48,8
+    EDITTEXT        IDC_EditOffDelay,297,87,40,14,ES_AUTOHSCROLL
+    CONTROL         "Up",IDC_CheckUp,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,75,151,25,10
+    CONTROL         "Down",IDC_CheckDown,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,75,170,34,10
+    CONTROL         "Left",IDC_CheckLeft,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,75,191,29,10
+    CONTROL         "Right",IDC_CheckRight,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,75,210,33,10
+    PUSHBUTTON      "All",IDC_ButtonAll,83,228,43,14
+    PUSHBUTTON      "None",IDC_ButtonNone,133,228,43,14
+    CONTROL         " Behaviorally Contingent",IDC_Check_Behavior,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,237,140,94,10
+    EDITTEXT        IDC_StartXUp,121,148,34,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_StartYUp,161,148,34,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_StartXDown,121,168,34,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_StartYDown,161,168,34,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_StartXLeft,121,189,34,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_StartYLeft,161,189,34,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_StartXRight,121,209,34,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_StartYRight,161,209,34,14,ES_AUTOHSCROLL
+    LTEXT           "Start position (deg)",IDC_STATIC,128,124,63,8
+    LTEXT           "X",IDC_STATIC,126,137,8,8
+    LTEXT           "Y",IDC_STATIC,166,137,8,8
+END
+
+IDD_SCENE_CALIBRATION DIALOGEX 10, 40, 450, 283
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Apply Changes",IDOK,169,130,57,14
+    LTEXT           "Image Path",IDC_STATIC,49,54,38,8
+    LTEXT           "Target X Position (Deg)",IDC_STATIC,49,81,75,8
+    LTEXT           "Target Y Position (Deg)",IDC_STATIC,49,105,75,8
+    EDITTEXT        IDC_ImagePath,103,50,255,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_XPosition,136,76,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_YPosition,136,100,40,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_BUTTON_BROWSE,364,50,50,14
+    CONTROL         "Swap red-blue channels",IDC_SwapRedBlue,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,321,73,92,10
+END
+
+IDD_OCULAR_FOLLOWING DIALOGEX 10, 40, 450, 348
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "X Position (deg)",IDC_STATIC,249,117,51,8
+    GROUPBOX        "Fixation Target",IDC_STATIC,235,103,144,119
+    LTEXT           "Y Position (deg)",IDC_STATIC,249,139,51,8
+    EDITTEXT        IDC_FX_X_POS,315,114,45,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FX_Y_POS,315,136,45,14,ES_AUTOHSCROLL
+    LTEXT           "Size (deg)",IDC_STATIC,249,161,33,8
+    EDITTEXT        IDC_FX_SIZE,315,158,45,14,ES_AUTOHSCROLL
+    LTEXT           "Background Speed (deg/s)",IDC_STATIC,34,56,91,8
+    LTEXT           "Post-Saccadic Latency (ms)",IDC_STATIC,34,86,90,8
+    LTEXT           "Background Step Duration (ms)",IDC_STATIC,34,118,100,8
+    LTEXT           "Time Out (ms)",IDC_STATIC,34,148,91,8
+    EDITTEXT        IDC_BKG_SPEED,135,53,45,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_POST_SACCADE_LAT,135,83,45,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_BKG_STEP_DURATION,135,115,45,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TIMEOUT,135,145,45,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Apply Changes",IDC_APPLY,169,311,83,14
+    GROUPBOX        "Step Direction",IDC_STATIC,235,29,144,57
+    CONTROL         "Up",IDC_CheckUp,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,245,45,25,10
+    CONTROL         "Down",IDC_CheckDown,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,245,66,34,10
+    CONTROL         "Left",IDC_CheckLeft,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,291,44,29,10
+    CONTROL         "Right",IDC_CheckRight,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,291,66,33,10
+    PUSHBUTTON      "All",IDC_ButtonAll,329,42,43,14
+    PUSHBUTTON      "None",IDC_ButtonNone,329,64,43,14
+    CONTROL         "Behaviorally Contingent",IDC_BEHAVIOR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,34,182,92,10
+    LTEXT           "Min Radius (deg)",IDC_STATIC,249,183,54,8
+    LTEXT           "Max Radius (deg)",IDC_STATIC,249,205,57,8
+    EDITTEXT        IDC_MinRadius,315,180,45,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MaxRadius,315,202,45,14,ES_AUTOHSCROLL
+    CONTROL         "Random dichoptic presentations",IDC_Random,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,34,198,118,10
+    EDITTEXT        IDC_NoiseSize,315,244,45,14,ES_AUTOHSCROLL
+    GROUPBOX        "Noise Pattern",IDC_STATIC,235,226,144,81
+    LTEXT           "Block size (pixels)",IDC_STATIC,249,247,56,8
+    LTEXT           "Percentage (0-100)",IDC_STATIC,249,267,64,8
+    EDITTEXT        IDC_NoisePct,315,264,45,14,ES_AUTOHSCROLL
+    LTEXT           "Contrast (0-100)",IDC_STATIC,249,287,55,8
+    EDITTEXT        IDC_NoiseContrast,315,284,45,14,ES_AUTOHSCROLL
+END
+
+IDD_ISOLUMINANT_PATCH DIALOGEX 10, 50, 450, 283
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Input filename: ",IDC_STATIC,12,25,52,8
+    EDITTEXT        IDC_FileName,17,43,362,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse",IDC_Browse,386,43,50,14
+    PUSHBUTTON      "Apply",IDC_APPLY,195,245,50,14
+    LTEXT           "Voltage Range (V)",IDC_STATIC,177,82,63,8
+    LTEXT           "Offset (V)",IDC_STATIC,177,103,33,8
+    EDITTEXT        IDC_VoltageRange,245,79,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_VoltageOffset,245,100,40,14,ES_AUTOHSCROLL
+    CONTROL         "Highest Priority",IDC_HIGHEST_PRIORITY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,179,186,65,10
+    RADIOBUTTON     "Left Hemifield",IDC_RadioLeft,23,160,59,10
+    RADIOBUTTON     "Right Hemifield",IDC_RadioRight,93,160,63,10
+    EDITTEXT        IDC_FixationSize,381,87,40,14,ES_AUTOHSCROLL
+    LTEXT           "Size (deg)",IDC_STATIC,307,90,44,8
+    LTEXT           "",IDC_STIM_DATA,23,224,141,35
+    LTEXT           "Point A X-Coord (deg)",IDC_STATIC,307,113,71,8
+    LTEXT           "Point A Y-Coord (deg)",IDC_STATIC,307,134,71,8
+    EDITTEXT        IDC_FixationX,381,110,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FixationY,381,132,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Status",IDC_STATIC,15,212,155,55
+    LTEXT           "Mean Luminance Level",IDC_STATIC,27,109,72,8
+    EDITTEXT        IDC_MEAN_LUMINANCE,113,106,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Stimulus Parameters",IDC_STATIC,15,67,153,140
+    RADIOBUTTON     "F-Noise",IDC_RADIO_FNOISE,26,85,40,10
+    RADIOBUTTON     "Non F-Noise",IDC_RADIO_NON_FNOISE,92,85,55,10
+    LTEXT           "Number of Repeats",IDC_STATIC,27,135,63,8
+    EDITTEXT        IDC_NUM_REPEATS,113,131,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Fixation Points",IDC_STATIC,294,71,149,131
+    LTEXT           "Point B X-Coord (deg)",IDC_STATIC,307,156,70,8
+    LTEXT           "Point B Y-Coord (deg)",IDC_STATIC,307,177,70,8
+    EDITTEXT        IDC_FixationX2,381,153,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FixationY2,381,175,40,14,ES_AUTOHSCROLL
+    CONTROL         " Show Repeats Only",IDC_RepeatsOnly,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,184,81,10
+    LTEXT           "Min Luminance",IDC_STATIC,177,125,47,8
+    LTEXT           "Max Luminance",IDC_STATIC,177,147,50,8
+    EDITTEXT        IDC_MinLuminance,245,122,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MaxLuminance,245,144,40,14,ES_AUTOHSCROLL
+END
+
+IDD_NOISE_GRATING_DLG DIALOGEX 10, 25, 449, 303
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Mean Level",IDC_STATIC,28,24,37,8
+    LTEXT           "Amplitude",IDC_STATIC,28,44,32,8
+    LTEXT           "X (deg)",IDC_STATIC,28,174,24,8
+    LTEXT           "Y (deg)",IDC_STATIC,108,174,24,8
+    GROUPBOX        "Noise Parameters",IDC_STATIC,18,8,173,75
+    GROUPBOX        "Mask Parameters",IDC_STATIC,18,86,173,53
+    CONTROL         "Use Mask",IDC_UseMask,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,29,102,46,10
+    LTEXT           "Radius (deg)",IDC_STATIC,87,102,42,8
+    EDITTEXT        IDC_MeanLevel,79,20,43,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NoiseAmplitude,79,41,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MaskRadius,133,98,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FreqMin,230,40,28,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_XPos,55,171,45,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_YPos,135,171,43,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_NoiseType,79,62,69,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Type",IDC_STATIC,28,63,17,8
+    LTEXT           "Blending",IDC_STATIC,28,122,28,8
+    COMBOBOX        IDC_MaskBlending,79,120,70,53,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Apply Changes",IDC_APPLY,65,264,60,14
+    RADIOBUTTON     "Sine Wave Grating",IDC_Radio_GratingSinewave,26,210,75,10
+    RADIOBUTTON     "Square Wave Grating",IDC_Radio_GratingSquareWave,104,210,80,10
+    GROUPBOX        "Spatial Frequency (c/d)",IDC_STATIC,205,10,224,49
+    GROUPBOX        "Grating Position",IDC_STATIC,19,142,172,50
+    CONTROL         "Mouse Control",IDC_UseMouseControl,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,154,62,10
+    GROUPBOX        "Contrast (%)",IDC_STATIC,206,61,222,46
+    GROUPBOX        "Orientation (deg)",IDC_STATIC,206,110,222,45
+    LTEXT           "Min",IDC_STATIC,214,43,12,8
+    LTEXT           "Max",IDC_STATIC,267,43,14,8
+    EDITTEXT        IDC_FreqMax,284,40,28,14,ES_AUTOHSCROLL
+    LTEXT           "Step",IDC_STATIC,321,43,16,8
+    EDITTEXT        IDC_FreqStep,341,40,28,14,ES_AUTOHSCROLL
+    CONTROL         "Automate Spatial Frequency",IDC_Check_AutoFreq,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,214,26,107,10
+    LTEXT           "Set Point",IDC_STATIC,346,26,30,8
+    EDITTEXT        IDC_FreqSetPt,380,24,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ContrastMin,230,88,28,14,ES_AUTOHSCROLL
+    LTEXT           "Min",IDC_STATIC,214,90,12,8
+    LTEXT           "Max",IDC_STATIC,266,90,14,8
+    EDITTEXT        IDC_ContrastMax,284,88,28,14,ES_AUTOHSCROLL
+    LTEXT           "Step",IDC_STATIC,320,90,16,8
+    EDITTEXT        IDC_ContrastStep,340,88,28,14,ES_AUTOHSCROLL
+    CONTROL         "Automate Contrast",IDC_Check_AutoContrast,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,214,72,77,10
+    LTEXT           "Set Point",IDC_STATIC,346,72,30,8
+    EDITTEXT        IDC_ContrastSetPt,380,69,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OrientationMin,230,136,28,14,ES_AUTOHSCROLL
+    LTEXT           "Min",IDC_STATIC,214,139,12,8
+    LTEXT           "Max",IDC_STATIC,267,139,14,8
+    EDITTEXT        IDC_OrientationMax,284,136,28,14,ES_AUTOHSCROLL
+    LTEXT           "Step",IDC_STATIC,321,139,16,8
+    EDITTEXT        IDC_OrientationStep,341,136,28,14,ES_AUTOHSCROLL
+    CONTROL         "Automate Orientation",IDC_Check_AutoOrientation,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,214,122,85,10
+    LTEXT           "Set Point",IDC_STATIC,346,122,30,8
+    EDITTEXT        IDC_OrientationSetPt,380,120,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Width (deg)",IDC_STATIC,206,157,222,45
+    EDITTEXT        IDC_WidthMin,231,184,28,14,ES_AUTOHSCROLL
+    LTEXT           "Min",IDC_STATIC,215,186,12,8
+    LTEXT           "Max",IDC_STATIC,267,186,14,8
+    EDITTEXT        IDC_WidthMax,285,184,28,14,ES_AUTOHSCROLL
+    LTEXT           "Step",IDC_STATIC,321,186,16,8
+    EDITTEXT        IDC_WidthStep,341,184,28,14,ES_AUTOHSCROLL
+    CONTROL         "Automate Width",IDC_Check_AutoWidth,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,215,168,68,10
+    LTEXT           "Set Point",IDC_STATIC,347,168,30,8
+    EDITTEXT        IDC_WidthSetPt,381,165,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Height",IDC_STATIC,206,203,222,45
+    EDITTEXT        IDC_HeightMin,231,229,28,14,ES_AUTOHSCROLL
+    LTEXT           "Min",IDC_STATIC,215,232,12,8
+    LTEXT           "Max",IDC_STATIC,268,232,14,8
+    EDITTEXT        IDC_HeightMax,285,229,28,14,ES_AUTOHSCROLL
+    LTEXT           "Step",IDC_STATIC,322,232,16,8
+    EDITTEXT        IDC_HeightStep,342,229,28,14,ES_AUTOHSCROLL
+    CONTROL         "Automate Height",IDC_Check_AutoHeight,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,215,216,70,10
+    LTEXT           "Set Point",IDC_STATIC,347,216,30,8
+    EDITTEXT        IDC_HeightSetPt,381,212,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Phase",IDC_STATIC,206,247,221,45
+    EDITTEXT        IDC_PhaseMin,231,275,28,14,ES_AUTOHSCROLL
+    LTEXT           "Min",IDC_STATIC,215,278,12,8
+    LTEXT           "Max",IDC_STATIC,268,278,14,8
+    EDITTEXT        IDC_PhaseMax,285,275,28,14,ES_AUTOHSCROLL
+    LTEXT           "Step",IDC_STATIC,322,278,16,8
+    EDITTEXT        IDC_PhaseStep,342,275,28,14,ES_AUTOHSCROLL
+    CONTROL         "Automate Phase",IDC_Check_AutoPhase,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,215,260,69,10
+    LTEXT           "Set Point",IDC_STATIC,347,261,30,8
+    EDITTEXT        IDC_PhaseSetPt,381,257,40,14,ES_AUTOHSCROLL
+    LTEXT           "Automation Speed (Hz)",IDC_STATIC,26,230,75,8
+    EDITTEXT        IDC_AutomationSpeed,107,227,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Misc Parameters",IDC_STATIC,19,196,172,52
+END
+
+IDD_PREF_SEL_DLG DIALOGEX 10, 25, 569, 301
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Spatial Frequency Levels",IDC_STATIC,60,188,80,8
+    EDITTEXT        IDC_EditFreq,47,199,110,24,ES_MULTILINE | ES_AUTOHSCROLL | ES_WANTRETURN
+    EDITTEXT        IDC_EditCorrectTimeOut,117,16,45,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EditTimeOut,117,38,44,14,ES_AUTOHSCROLL
+    GROUPBOX        "Staircase Parameters",IDC_STATIC,176,14,257,135
+    PUSHBUTTON      "Apply Changes",IDC_ButtonApply,74,271,63,14
+    LTEXT           "nUp",IDC_STATIC,190,110,14,8
+    EDITTEXT        IDC_NUp,214,107,31,14,ES_AUTOHSCROLL
+    LTEXT           "nDown",IDC_STATIC,258,110,23,8
+    LTEXT           "Correct Time Out (ms)",IDC_STATIC,37,19,72,8
+    EDITTEXT        IDC_NDown,285,107,32,14,ES_AUTOHSCROLL
+    LTEXT           "Coarse Step (%)",IDC_STATIC,189,32,55,8
+    EDITTEXT        IDC_CoarseStep,260,29,40,14,ES_AUTOHSCROLL
+    LTEXT           "Fine Step (%)",IDC_STATIC,324,32,46,8
+    EDITTEXT        IDC_FineStep,387,29,41,14,ES_AUTOHSCROLL
+    GROUPBOX        "Current Stimulus Parameters",IDC_STATIC,173,171,261,100
+    LTEXT           "Spatial Frequency (c/d) :",IDC_STATIC,179,187,80,8
+    LTEXT           "Contrast (%) : ",IDC_STATIC,179,201,50,8
+    LTEXT           "freq",IDC_CurrFreq,269,187,41,8
+    LTEXT           "xxx%",IDC_CurrContrast,233,201,32,8
+    LTEXT           "Number of Reversals",IDC_STATIC,190,81,68,8
+    EDITTEXT        IDC_NumReversals,266,77,40,14,ES_AUTOHSCROLL
+    LTEXT           "Grating Height (deg)",IDC_STATIC,37,64,66,8
+    EDITTEXT        IDC_GratingHeight,117,60,44,14,ES_AUTOHSCROLL
+    LTEXT           "Grating Width (deg)",IDC_STATIC,37,87,64,8
+    EDITTEXT        IDC_GratingWidth,117,83,44,14,ES_AUTOHSCROLL
+    LTEXT           "Dot Position (deg)",IDC_STATIC,37,128,58,8
+    EDITTEXT        IDC_DotPosition,117,124,44,14,ES_AUTOHSCROLL
+    LTEXT           "Grating Position (deg)",IDC_STATIC,37,107,70,8
+    EDITTEXT        IDC_GratingPosition,117,104,44,14,ES_AUTOHSCROLL
+    LTEXT           "Incorrect Time Out (ms)",IDC_STATIC,37,41,77,8
+    LTEXT           "Min",IDC_STATIC,189,130,12,8
+    EDITTEXT        IDC_MinContrast,213,127,31,14,ES_AUTOHSCROLL
+    LTEXT           "Max",IDC_STATIC,257,130,14,8
+    EDITTEXT        IDC_MaxContrast,285,127,32,14,ES_AUTOHSCROLL
+    LTEXT           "Position (L / R) : ",IDC_STATIC,180,216,54,8
+    LTEXT           "xxx%",IDC_CurrPosition,239,216,39,8
+    LTEXT           "Medium Step (%)",IDC_STATIC,189,53,56,8
+    EDITTEXT        IDC_MEDIUM_STEP,260,50,40,14,ES_AUTOHSCROLL
+    LTEXT           "Initial Contrasts",IDC_STATIC,60,228,52,8
+    EDITTEXT        IDC_InitialContrasts,47,238,109,27,ES_AUTOHSCROLL | ES_NOHIDESEL
+    LTEXT           "Reversals Completed:",IDC_STATIC,323,187,71,8
+    LTEXT           "xxxx",IDC_ReversalsCompleted,404,187,17,8
+    PUSHBUTTON      "Decrease Reversals",IDC_IncreaseStep,237,249,70,14
+    PUSHBUTTON      "Increase Reversals",IDC_DecreaseStep,323,249,72,14
+    LTEXT           "Current Step Size: ",IDC_STATIC,324,202,62,8
+    LTEXT           "xxxx",IDC_CurrStepSize,401,202,17,8
+    EDITTEXT        IDC_UBERFINESTEP,387,50,41,14,ES_AUTOHSCROLL
+    LTEXT           "Uber Fine Step (%)",IDC_STATIC,324,53,63,8
+    LTEXT           "Dot Size (deg)",IDC_STATIC,37,148,46,8
+    EDITTEXT        IDC_DotSize,117,144,44,14,ES_AUTOHSCROLL
+    LTEXT           "Target Delay (ms)",IDC_STATIC,37,168,58,8
+    EDITTEXT        IDC_Edit_TargetDelay,117,164,44,14,ES_AUTOHSCROLL
+    CONTROL         "Training Mode (Hide incorrect target)",IDC_TRAINING,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,182,157,134,10
+    LTEXT           "Pct Trials Right",IDC_STATIC,441,33,48,8
+    EDITTEXT        IDC_PCT_TRIALS_RIGHT,500,30,40,14,ES_AUTOHSCROLL
+END
+
+IDD_ORIENTATION_TUNING_DLG DIALOGEX 10, 50, 520, 422
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Bar Width (deg)",IDC_STATIC,200,26,52,8
+    LTEXT           "Bar Height (deg)",IDC_STATIC,200,49,54,8
+    LTEXT           "Angular Step (deg)",IDC_STATIC,200,116,62,8
+    LTEXT           "Motion Speed (deg/s)",IDC_STATIC,200,137,70,8
+    LTEXT           "Trial Duration (ms)",IDC_STATIC,19,182,60,8
+    LTEXT           "nRepeats",IDC_STATIC,19,244,66,8
+    LTEXT           "Intertrial Time (ms)",IDC_STATIC,19,223,65,8
+    EDITTEXT        IDC_BarWidth,272,23,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_BarHeight,272,46,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AngularStep,272,113,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MotionStep,272,135,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_IntertrialTime,89,220,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TrialDuration,89,178,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_nRepeats,89,241,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Orientation Tuning Properties",IDC_STATIC,190,7,173,148
+    GROUPBOX        "Trial Timing",IDC_STATIC,7,164,162,110
+    LTEXT           "Unit Tag",IDC_STATIC,21,287,28,8
+    EDITTEXT        IDC_UnitTag,55,282,79,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Apply Changes",IDC_APPLY,183,401,63,14
+    GROUPBOX        "Current Trial Properties",IDC_STATIC,189,164,174,109
+    LTEXT           "Orientation: ",IDC_STATIC,204,188,42,8
+    LTEXT           "Repeat Number: ",IDC_STATIC,204,207,56,8
+    LTEXT           "Number of Trials Left: ",IDC_STATIC,204,225,72,8
+    LTEXT           "xxxx deg",IDC_STATIC_ORIENTATION,279,188,80,8
+    LTEXT           "xxxx deg",IDC_STATIC_REPEAT,279,207,80,8
+    LTEXT           "xxxx deg",IDC_STATIC_TRIALS_LEFT,279,225,79,8
+    PUSHBUTTON      "Start Presentations",IDC_START_PRESENTATION,261,401,79,14
+    LTEXT           "Blank Period (ms)",IDC_STATIC,19,202,56,8
+    EDITTEXT        IDC_BlankPeriod,89,199,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Current Left Eye Field",IDC_STATIC,378,7,135,146
+    LTEXT           "description",IDC_StaticLeftEye,393,23,113,125
+    GROUPBOX        "Current Right Eye Field",IDC_STATIC,377,164,135,146
+    LTEXT           "description",IDC_StaticRightEye,394,180,113,125
+    GROUPBOX        "Receptive Field",IDC_STATIC,7,7,162,147
+    CONTROL         "Right Eye Field",IDC_RightEyeField,"Button",BS_AUTORADIOBUTTON | WS_GROUP,21,28,63,10
+    CONTROL         "Left Eye Field",IDC_LeftEyeField,"Button",BS_AUTORADIOBUTTON | WS_GROUP,21,44,59,10
+    CONTROL         "Interleaved Fields",IDC_InterleavedFields,"Button",BS_AUTORADIOBUTTON | WS_GROUP,21,62,73,10
+    CONTROL         "Manually Entered Fields",IDC_ManualFields,"Button",BS_AUTORADIOBUTTON | WS_GROUP,21,79,91,10
+    LTEXT           "X Position (deg)",IDC_STATIC,40,98,51,8
+    EDITTEXT        IDC_XPosition,100,95,40,14,ES_AUTOHSCROLL
+    LTEXT           "Y Position (deg)",IDC_STATIC,40,118,51,8
+    EDITTEXT        IDC_YPosition,100,114,40,14,ES_AUTOHSCROLL
+    LTEXT           "Start Angle (deg)",IDC_STATIC,200,71,56,8
+    EDITTEXT        IDC_StartAngle,272,68,40,14,ES_AUTOHSCROLL
+    LTEXT           "End Angle (deg)",IDC_STATIC,200,94,52,8
+    EDITTEXT        IDC_EndAngle,272,90,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FixY,250,302,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FixX,250,284,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FixD,250,321,40,14,ES_AUTOHSCROLL
+    LTEXT           "X (deg)",IDC_STATIC,221,287,24,8
+    LTEXT           "Y (deg)",IDC_STATIC,221,305,24,8
+    LTEXT           "Diameter (deg)",IDC_STATIC,196,323,49,8
+    GROUPBOX        "Fixation Spot",IDC_STATIC,191,275,172,67
+    EDITTEXT        IDC_EDIT3,317,284,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,317,302,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,317,320,40,14,ES_AUTOHSCROLL
+    LTEXT           "R",IDC_STATIC,303,287,8,8
+    LTEXT           "G",IDC_STATIC,303,305,8,8
+    LTEXT           "B",IDC_STATIC,303,322,8,8
+    CONTROL         "Use Fixation Spot",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,115,323,72,10
+END
+
+IDD_RF_MAPPING_DLG DIALOGEX 10, 50, 597, 362
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_XPosition,543,64,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_YPosition,543,84,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Width,543,104,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Height,543,124,40,14,ES_AUTOHSCROLL
+    CONTROL         "Circle",IDC_Circle,"Button",BS_AUTORADIOBUTTON | WS_GROUP,168,22,33,10
+    CONTROL         "Bar",IDC_Bar,"Button",BS_AUTORADIOBUTTON | WS_GROUP,168,51,27,10
+    GROUPBOX        "Stimulus",IDC_STATIC,154,7,294,196
+    CONTROL         "Enable Pulse",IDC_Pulse,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,339,178,56,10
+    PUSHBUTTON      "Apply Changes",IDC_APPLY,266,338,66,14
+    PUSHBUTTON      "Store As Left Eye Field",IDC_SaveAsLeft,171,257,86,15
+    PUSHBUTTON      "Store As Right Eye Field",IDC_SaveAsRight,343,257,87,15
+    GROUPBOX        "Stored Left Eye Field",IDC_STATIC,27,206,135,146
+    LTEXT           "description",IDC_StaticLeftEye,43,222,113,125
+    GROUPBOX        "Stored Right Eye Field",IDC_STATIC,435,206,135,146
+    LTEXT           "description",IDC_StaticRightEye,453,222,113,125
+    LTEXT           "Width",IDC_STATIC,186,85,20,8
+    LTEXT           "Height",IDC_STATIC,186,68,22,8
+    EDITTEXT        IDC_BarWidth,228,82,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_BarHeight,228,64,40,14,ES_AUTOHSCROLL
+    LTEXT           "Orientation",IDC_STATIC,186,101,37,8
+    EDITTEXT        IDC_Orientation,228,100,40,14,ES_AUTOHSCROLL
+    LTEXT           "Radius",IDC_STATIC,186,37,22,8
+    EDITTEXT        IDC_CircleRadius,228,34,40,14,ES_AUTOHSCROLL
+    LTEXT           "Size: Hold left button",IDC_STATIC,315,34,68,8
+    LTEXT           "Orientation: Scroll or hold right button",IDC_STATIC,315,46,122,8
+    EDITTEXT        IDC_rfmCrossX,82,25,39,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_rfmCrossY,82,45,39,14,ES_AUTOHSCROLL
+    GROUPBOX        "Field Results",IDC_STATICfield,469,7,119,138
+    LTEXT           "X Position (deg)",IDC_STATIC,14,24,51,14,SS_CENTERIMAGE
+    LTEXT           "Y Position (deg)",IDC_STATIC,14,44,51,14,SS_CENTERIMAGE
+    GROUPBOX        "Fixation Crosshair",IDC_STATICfield2,7,7,126,102
+    EDITTEXT        IDC_rfmCrossDiameter,82,65,39,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_rfmCrossThickness,82,85,39,14,ES_AUTOHSCROLL
+    LTEXT           "Diameter (deg)",IDC_STATIC,14,64,49,14,SS_CENTERIMAGE
+    LTEXT           "Thickness (pix)",IDC_STATIC,14,84,51,14,SS_CENTERIMAGE
+    LTEXT           "X Position (deg)",IDC_STATIC,476,64,51,14,SS_CENTERIMAGE
+    LTEXT           "Y Position (deg)",IDC_STATIC,476,84,51,14,SS_CENTERIMAGE
+    LTEXT           "Width (deg)",IDC_STATIC,476,104,49,14,SS_CENTERIMAGE
+    LTEXT           "Height (deg)",IDC_STATIC,476,124,51,14,SS_CENTERIMAGE
+    LTEXT           "Populated from displayed stimulus. Manual edits will be reflected if results are stored but will not affect stimulus settings.",IDC_STATIC,484,20,94,42
+    CONTROL         "Position using mouse",IDC_rfmUseMouse,"Button",BS_AUTORADIOBUTTON | WS_GROUP,297,22,82,10
+    CONTROL         "Position on grid",IDC_rfmUseGrid,"Button",BS_AUTORADIOBUTTON | WS_GROUP,297,59,67,10
+    GROUPBOX        "",IDC_STATIC,163,15,109,107
+    GROUPBOX        "",IDC_STATIC,291,15,147,147
+    LTEXT           "Steps X",IDC_STATIC,318,92,25,8
+    LTEXT           "Step size (deg)",IDC_STATIC,318,76,49,8
+    EDITTEXT        IDC_rfmStepsX,374,89,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_rfmStepSizeDeg,374,73,40,14,ES_AUTOHSCROLL
+    LTEXT           "Steps Y",IDC_STATIC,318,108,25,8
+    EDITTEXT        IDC_rfmStepsY,374,105,40,14,ES_AUTOHSCROLL
+    LTEXT           "Display time (ms)",IDC_STATIC,318,124,55,8
+    EDITTEXT        IDC_rfmDisplayTimeMs,374,121,40,14,ES_AUTOHSCROLL
+    CONTROL         "Blanks (ms)",IDC_rfmBlanks,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,318,139,52,10
+    EDITTEXT        IDC_rfmBlankTimeMs,374,137,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_rfmStimRed,190,138,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_rfmStimGreen,190,157,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_rfmStimBlue,190,176,23,14,ES_AUTOHSCROLL
+    GROUPBOX        "Color",IDC_STATIC,163,127,109,67
+    CONTROL         "",IDC_rfmStimColorStatic,"Static",SS_BLACKFRAME | WS_BORDER,225,144,34,36
+    RTEXT           "Red",IDC_STATIC,172,141,14,8
+    RTEXT           "Green",IDC_STATIC,166,160,20,8
+    RTEXT           "Blue",IDC_STATIC,172,179,14,8
+END
+
+IDD_CIRCLE_ANNULUS_DLG DIALOGEX 0, 50, 751, 440
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Apply Changes",ID_APPLY,216,401,78,14
+    GROUPBOX        "Receptive Field",IDC_STATIC,33,20,163,134
+    CONTROL         "Right Eye Field",IDC_RightEyeField,"Button",BS_AUTORADIOBUTTON | WS_GROUP,47,36,63,10
+    CONTROL         "Left Eye Field",IDC_LeftEyeField,"Button",BS_AUTORADIOBUTTON | WS_GROUP,47,53,59,10
+    CONTROL         "Interleaved Fields",IDC_InterleavedFields,"Button",BS_AUTORADIOBUTTON | WS_GROUP,47,70,73,10
+    CONTROL         "Manually Entered Fields",IDC_ManualFields,"Button",BS_AUTORADIOBUTTON | WS_GROUP,47,88,91,10
+    LTEXT           "X Position (deg)",IDC_STATIC,66,107,51,8
+    EDITTEXT        IDC_XPosition,126,104,40,14,ES_AUTOHSCROLL
+    LTEXT           "Y Position (deg)",IDC_STATIC,66,126,51,8
+    EDITTEXT        IDC_YPosition,126,123,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Trial Timing",IDC_STATIC,33,162,163,117
+    LTEXT           "Trial Duration (ms)",IDC_STATIC,48,181,60,8
+    EDITTEXT        IDC_TrialDuration,134,177,40,14,ES_AUTOHSCROLL
+    LTEXT           "Intertrial Duration (ms)",IDC_STATIC,48,226,74,8
+    EDITTEXT        IDC_BlankPeriod,134,199,40,14,ES_AUTOHSCROLL
+    LTEXT           "Blank Period (ms)",IDC_STATIC,48,203,56,8
+    EDITTEXT        IDC_IntertrialDuration,134,222,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Shapes Presented",IDC_STATIC,35,286,160,76
+    CONTROL         "Circles Only",IDC_CirclesOnly,"Button",BS_AUTORADIOBUTTON | WS_GROUP,48,302,53,10
+    CONTROL         "Annuli Only",IDC_AnnuliOnly,"Button",BS_AUTORADIOBUTTON | WS_GROUP,47,320,52,10
+    CONTROL         "Circles and Annuli",IDC_CirclesAnnuli,"Button",BS_AUTORADIOBUTTON | WS_GROUP,47,338,72,10
+    CONTROL         "On / Off",IDC_CheckOnOff,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,46,372,43,10
+    GROUPBOX        "Circle Radius",IDC_STATIC,235,21,342,45
+    LTEXT           "Min (deg)",IDC_STATIC,256,41,31,8
+    EDITTEXT        IDC_RadiusMin,297,39,40,14,ES_AUTOHSCROLL
+    LTEXT           "Max (deg)",IDC_STATIC,360,41,34,8
+    EDITTEXT        IDC_RadiusMax,401,40,40,14,ES_AUTOHSCROLL
+    LTEXT           "Step (deg)",IDC_STATIC,466,41,35,8
+    EDITTEXT        IDC_RadiusStep,507,38,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Annulus Width",IDC_STATIC,235,76,339,41
+    LTEXT           "Min (deg)",IDC_STATIC,257,96,31,8
+    EDITTEXT        IDC_AnnulusWidthMin,297,93,40,14,ES_AUTOHSCROLL
+    LTEXT           "Max (deg)",IDC_STATIC,359,97,34,8
+    EDITTEXT        IDC_AnnulusWidthMax,403,94,40,14,ES_AUTOHSCROLL
+    LTEXT           "Step (deg)",IDC_STATIC,466,97,35,8
+    EDITTEXT        IDC_AnnulusWidthStep,507,93,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Primary Color",IDC_STATIC,236,126,339,89
+    LTEXT           "Red",IDC_STATIC,256,152,14,8
+    LTEXT           "Green",IDC_STATIC,256,169,20,8
+    LTEXT           "Blue",IDC_STATIC,256,187,14,8
+    EDITTEXT        IDC_PrimaryRed,286,148,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PrimaryGreen,286,166,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PrimaryBlue,286,185,36,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Add",IDC_PrimaryAdd,336,148,45,14
+    PUSHBUTTON      "Remove",IDC_PrimaryRemove,336,167,45,14
+    PUSHBUTTON      "Clear",IDC_PrimaryClear,335,185,46,14
+    LISTBOX         IDC_PrimaryList,400,148,138,51,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Secondary Color",IDC_STATIC,236,222,339,89
+    LTEXT           "Red",IDC_STATIC,256,249,14,8
+    LTEXT           "Green",IDC_STATIC,256,266,20,8
+    LTEXT           "Blue",IDC_STATIC,256,284,14,8
+    EDITTEXT        IDC_SecondaryRed,286,245,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SecondaryGreen,286,263,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SecondaryBlue,286,281,36,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Add",IDC_SecondaryAdd,336,245,45,14
+    PUSHBUTTON      "Remove",IDC_SecondaryRemove,336,263,45,14
+    PUSHBUTTON      "Clear",IDC_SecondaryClear,336,281,46,14
+    LISTBOX         IDC_SecondaryList,400,245,138,51,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Unit Tag",IDC_STATIC,47,392,28,8
+    EDITTEXT        IDC_UnitTag,81,389,79,14,ES_AUTOHSCROLL
+    GROUPBOX        "Current Trial Properties",IDC_STATIC,238,318,337,70
+    LTEXT           "Repeats",IDC_STATIC,49,250,28,8
+    EDITTEXT        IDC_Repeats,134,245,40,14,ES_AUTOHSCROLL
+    LTEXT           "Circle Radius: ",IDC_STATIC,255,336,46,8
+    LTEXT           "Annulus Width:",IDC_STATIC,255,357,50,8
+    LTEXT           "Repeat Number:",IDC_STATIC,403,336,54,8
+    LTEXT           "Trials Left:",IDC_STATIC,403,357,35,8
+    PUSHBUTTON      "Start Presentations",IDC_START_PRESENTATION,317,401,79,14
+    LTEXT           "xxx Radius",IDC_StaticRadius,314,336,36,8
+    LTEXT           "xxx Radius",IDC_StaticAnnulusWidth,314,357,36,8
+    LTEXT           "xxx Radius",IDC_StaticRepeat,468,336,36,8
+    LTEXT           "xxx Radius",IDC_StaticTrialsLeft,468,357,36,8
+    GROUPBOX        "Current Left Eye Field",IDC_STATIC,591,20,135,146
+    LTEXT           "description",IDC_StaticLeftEye,606,36,113,125
+    GROUPBOX        "Current Right Eye Field",IDC_STATIC,591,179,135,146
+    LTEXT           "description",IDC_StaticRightEye,606,195,113,125
+END
+
+IDD_APD_DLG DIALOGEX 10, 40, 516, 306
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Apply Changes",IDOK,209,260,60,14
+    LTEXT           "Position X (deg)",IDC_STATIC,33,42,51,8
+    LTEXT           "Position Y (deg)",IDC_STATIC,33,61,51,8
+    LTEXT           "Red",IDC_STATIC,33,101,14,8
+    LTEXT           "Green",IDC_STATIC,33,119,20,8
+    LTEXT           "Blue",IDC_STATIC,33,140,14,8
+    CONTROL         "Show Fixation Target",IDC_SHOW_FIXATION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,38,25,84,10
+    LTEXT           "Red",IDC_STATIC,181,44,14,8
+    LTEXT           "Green",IDC_STATIC,181,62,20,8
+    LTEXT           "Blue",IDC_STATIC,181,81,14,8
+    LTEXT           "On Time (ms)",IDC_STATIC,172,132,43,8
+    LTEXT           "Off Time (ms)",IDC_STATIC,172,151,44,8
+    EDITTEXT        IDC_FIXATION_POSX,91,38,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FIXATION_POSY,91,58,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FIXATION_RED,91,96,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FIXATION_GREEN,91,116,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FIXATION_BLUE,91,136,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Fixation",IDC_STATIC,16,14,133,152
+    GROUPBOX        "On Color",IDC_STATIC,160,19,105,86
+    EDITTEXT        IDC_ON_RED,206,39,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ON_GREEN,206,58,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ON_BLUE,206,79,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ON_TIME,250,128,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OFF_TIME,250,147,40,14,ES_AUTOHSCROLL
+    LTEXT           "Red",IDC_STATIC,293,44,14,8
+    LTEXT           "Green",IDC_STATIC,293,62,20,8
+    LTEXT           "Blue",IDC_STATIC,293,81,14,8
+    GROUPBOX        "Off Color",IDC_STATIC,271,19,105,86
+    EDITTEXT        IDC_OFF_RED,317,38,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OFF_GREEN,317,57,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OFF_BLUE,317,78,40,14,ES_AUTOHSCROLL
+    LTEXT           "Size (deg)",IDC_STATIC,34,80,33,8
+    EDITTEXT        IDC_FIXATION_SIZE,91,77,40,14,ES_AUTOHSCROLL
+    CONTROL         "Left Field",IDC_LEFT_FIELD,"Button",BS_AUTORADIOBUTTON | WS_GROUP,36,181,45,10
+    CONTROL         "Right Field",IDC_RIGHT_FIELD,"Button",BS_AUTORADIOBUTTON | WS_GROUP,36,195,49,10
+    CONTROL         "Alternate",IDC_ALTERNATE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,36,209,46,10
+    CONTROL         "Full Screen",IDC_FULLSCREEN,"Button",BS_AUTORADIOBUTTON | WS_GROUP,36,224,51,10
+    GROUPBOX        "Field",IDC_STATIC,17,170,130,76
+    LTEXT           "Intertrial Delay (ms)",IDC_STATIC,172,170,65,8
+    EDITTEXT        IDC_ALTERNATE_DELAY,250,167,40,14,ES_AUTOHSCROLL
+    LTEXT           "Field Width (deg)",IDC_STATIC,328,120,56,8
+    LTEXT           "Field Height (deg)",IDC_STATIC,328,139,58,8
+    LTEXT           "Fixation Delay (ms)",IDC_STATIC,172,189,62,8
+    CONTROL         "Behaviorally Contingent",IDC_BEHAVIOR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,172,210,92,10
+    EDITTEXT        IDC_FIXATION_DELAY,250,186,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FIELD_WIDTH,415,116,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FIELD_HEIGHT,415,136,40,14,ES_AUTOHSCROLL
+    LTEXT           "Left Field Center X (deg)",IDC_STATIC,328,160,80,8
+    LTEXT           "Left Field Center Y (deg)",IDC_STATIC,328,178,80,8
+    LTEXT           "Right Field Center X (deg)",IDC_STATIC,328,197,84,8
+    LTEXT           "Right Field Center Y (deg)",IDC_STATIC,328,216,84,8
+    EDITTEXT        IDC_CENTER_X_LEFT,415,157,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CENTER_Y_LEFT,415,175,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CENTER_X_RIGHT,415,195,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CENTER_Y_RIGHT,415,214,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Field Parameters",IDC_STATIC,314,108,156,137
+    GROUPBOX        "Timing",IDC_STATIC,163,110,134,136
+END
+
+IDD_REMEMBER_DLG DIALOGEX 60, 30, 691, 545
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Apply Changes",IDC_ButtonApply,307,524,77,14
+    LTEXT           "Flash Interval (ms)",IDC_STATIC,16,231,66,14
+    GROUPBOX        "Peripheral Target",IDC_STATIC,7,198,677,263
+    GROUPBOX        "Center Target",IDC_STATIC,7,59,677,134
+    EDITTEXT        IDC_CenterXPos,101,143,60,14,ES_AUTOHSCROLL
+    LTEXT           "X Position (deg)",IDC_STATIC,19,145,55,9
+    LTEXT           "Y Position (deg)",IDC_STATIC,19,162,54,10
+    EDITTEXT        IDC_CenterYPos,102,160,59,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FlashInterval,104,229,40,14,ES_AUTOHSCROLL
+    LTEXT           "Flash Duration (ms)",IDC_STATIC,17,317,65,14
+    EDITTEXT        IDC_FlashDuration,105,317,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_StepSize,310,208,63,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NumStepsH,310,224,63,14,ES_AUTOHSCROLL
+    LTEXT           "Step Size  (deg)",IDC_STATIC,220,209,55,14
+    LTEXT           "Number of Steps (horiz)",IDC_STATIC,220,226,86,11
+    LTEXT           "Red (0-255)",IDC_STATIC,539,140,46,14
+    EDITTEXT        IDC_CenterSecondaryRed,597,138,40,14,ES_AUTOHSCROLL | WS_DISABLED
+    LTEXT           "Green (0-255)",IDC_STATIC,539,155,50,14
+    EDITTEXT        IDC_CenterSecondaryGreen,597,154,40,14,ES_AUTOHSCROLL | WS_DISABLED
+    LTEXT           "Blue (0-255)",IDC_STATIC,539,172,43,11
+    EDITTEXT        IDC_CenterSecondaryBlue,597,170,40,14,ES_AUTOHSCROLL
+    LTEXT           "Crosshair Diameter (deg)",IDC_STATIC,19,72,81,8
+    CONTROL         "Behaviorally Contingent Display",IDC_BEHAVIOR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,334,117,10
+    EDITTEXT        IDC_EditDotSize,101,71,60,14,ES_AUTOHSCROLL
+    LTEXT           "Dot Radius Size (deg)",IDC_STATIC,16,211,70,8
+    EDITTEXT        IDC_PeriphDotSize,104,210,68,14,ES_AUTOHSCROLL
+    CONTROL         "Primary Color",IDC_CenterRadioPrimary,"Button",BS_AUTORADIOBUTTON,365,80,59,10
+    GROUPBOX        "Color Options",IDC_STATIC,357,66,146,102
+    CONTROL         "Secondary Color",IDC_CenterRadioSecondary,"Button",BS_AUTORADIOBUTTON,365,93,69,10
+    CONTROL         "Alternate",IDC_CenterRadioAlternate,"Button",BS_AUTORADIOBUTTON,365,109,46,10
+    CONTROL         "Randomize",IDC_CenterRadioRandomize,"Button",BS_AUTORADIOBUTTON,365,152,51,10
+    LTEXT           "Red (0-255)",IDC_STATIC,541,78,46,14
+    EDITTEXT        IDC_CenterPrimaryRed,599,75,40,14,ES_AUTOHSCROLL
+    LTEXT           "Green (0-255)",IDC_STATIC,541,93,50,14
+    EDITTEXT        IDC_CenterPrimaryGreen,599,91,40,14,ES_AUTOHSCROLL | WS_DISABLED
+    LTEXT           "Blue (0-255)",IDC_STATIC,541,110,43,14
+    EDITTEXT        IDC_CenterPrimaryBlue,599,109,40,14,ES_AUTOHSCROLL | WS_DISABLED
+    GROUPBOX        "Primary Color",IDC_STATIC,523,66,151,62
+    GROUPBOX        "Secondary Color",IDC_STATIC,523,128,151,61
+    LTEXT           "Red (0-255)",IDC_STATIC,540,286,46,14
+    EDITTEXT        IDC_PeriphSecondaryRed,598,286,40,14,ES_AUTOHSCROLL | WS_DISABLED
+    LTEXT           "Green (0-255)",IDC_STATIC,540,303,50,14
+    EDITTEXT        IDC_PeriphSecondaryGreen,598,303,40,14,ES_AUTOHSCROLL | WS_DISABLED
+    LTEXT           "Blue (0-255)",IDC_STATIC,540,321,43,14
+    EDITTEXT        IDC_PeriphSecondaryBlue,598,321,40,14,ES_AUTOHSCROLL
+    CONTROL         "Primary Color",IDC_PeriphRadioPrimary,"Button",BS_AUTORADIOBUTTON,441,215,59,10
+    GROUPBOX        "Color Options",IDC_STATIC,435,206,84,147
+    CONTROL         "Secondary Color",IDC_PeriphRadioSecondary,"Button",BS_AUTORADIOBUTTON,441,227,69,10
+    CONTROL         "Alternate Pri-Sec",IDC_PeriphRadioAlternate,"Button",BS_AUTORADIOBUTTON,441,339,70,10
+    CONTROL         "Randomize",IDC_PeriphRadioRandomize,"Button",BS_AUTORADIOBUTTON,441,249,51,10
+    LTEXT           "Red (0-255)",IDC_STATIC,542,216,46,14
+    EDITTEXT        IDC_PeriphPrimaryRed,600,214,40,14,ES_AUTOHSCROLL
+    LTEXT           "Green (0-255)",IDC_STATIC,542,233,50,14
+    EDITTEXT        IDC_PeriphPrimaryGreen,600,231,40,14,ES_AUTOHSCROLL | WS_DISABLED
+    LTEXT           "Blue (0-255)",IDC_STATIC,542,249,43,14
+    EDITTEXT        IDC_PeriphPrimaryBlue,600,249,40,14,ES_AUTOHSCROLL | WS_DISABLED
+    GROUPBOX        "Primary Color",IDC_STATIC,527,206,146,61
+    GROUPBOX        "Secondary Color",IDC_STATIC,527,272,147,67
+    GROUPBOX        "Step Orientation",IDC_STATIC,219,311,207,41
+    CONTROL         "Horizontal",IDC_StepHoriz,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,229,322,48,10
+    CONTROL         "Vertical",IDC_StepVert,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,229,337,39,10
+    CONTROL         "45 Degrees",IDC_Step45,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,285,322,53,10
+    CONTROL         "135 Degrees",IDC_Step135,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,285,337,57,10
+    PUSHBUTTON      "Use All Directions",IDC_BUTTON1,346,328,66,14
+    GROUPBOX        "Oblique Distance Type",IDC_STATIC,220,267,103,40
+    CONTROL         "Radial Distance",IDC_DistRadial,"Button",BS_AUTORADIOBUTTON | WS_GROUP,229,278,65,10
+    CONTROL         "XY Steps",IDC_DistXY,"Button",BS_AUTORADIOBUTTON,229,292,44,10
+    EDITTEXT        IDC_AlternateBlockSize,393,132,58,14,ES_AUTOHSCROLL
+    LTEXT           "Number of Repititions in Block",IDC_STATIC,394,121,95,8
+    EDITTEXT        IDC_MaxDelay,97,349,50,14,ES_AUTOHSCROLL
+    LTEXT           "Maximum Duration (ms)",IDC_STATIC,18,351,76,8
+    CONTROL         "Memory Guided Task",IDC_MEMORY_GUIDED,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,9,82,10
+    CONTROL         "Peripheral Flash Task",IDC_PERIPHERAL_FLASH,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,20,83,10
+    LTEXT           "Post Flash Delay (ms)",IDC_STATIC,19,110,70,8
+    LTEXT           "Intertrial Delay (ms)",IDC_STATIC,19,128,65,8
+    EDITTEXT        IDC_POST_FLASH_DELAY,101,108,60,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_INTERTRIAL_DELAY,102,126,59,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NumStepsV,310,240,63,14,ES_AUTOHSCROLL
+    LTEXT           "Number of Steps (vert)",IDC_STATIC,220,242,86,11
+    CONTROL         "Avoid Zero",IDC_AvoidZero,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,334,284,51,10
+    CONTROL         "Red and Blue Colors Only",IDC_RedBlue,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,129,10,97,10
+    CONTROL         "Randomize Durations",IDC_RandomizePostFlash,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,184,74,83,10
+    CONTROL         "Randomize Durations",IDC_RandomizeFlashInterval,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,41,253,83,10
+    GROUPBOX        "",IDC_STATIC,176,66,139,65
+    EDITTEXT        IDC_PostFlashRandMin,269,89,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PostFlashRandMax,269,110,40,14,ES_AUTOHSCROLL
+    LTEXT           "Minimum Duration (ms)",IDC_STATIC,185,93,73,8
+    LTEXT           "Maximum Duration (ms)",IDC_STATIC,185,111,76,8
+    GROUPBOX        "",IDC_STATIC,31,244,146,67
+    LTEXT           "Minimum Duration (ms)",IDC_STATIC,39,272,73,8
+    LTEXT           "Maximum Duration (ms)",IDC_STATIC,39,290,76,8
+    EDITTEXT        IDC_FlashIntervalRandMin,123,270,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FlashIntervalRandMax,123,289,40,14,ES_AUTOHSCROLL
+    CONTROL         "",IDC_CenterPrimaryStatic,"Static",SS_BLACKFRAME | WS_BORDER,645,76,22,22
+    CONTROL         "",IDC_CenterSecondaryStatic,"Static",SS_BLACKFRAME | WS_BORDER,643,138,22,22
+    CONTROL         "",IDC_PeriphSecondaryStatic,"Static",SS_BLACKFRAME | WS_BORDER,645,287,22,22
+    CONTROL         "",IDC_PeriphPrimaryStatic,"Static",SS_BLACKFRAME | WS_BORDER,645,214,22,22
+    GROUPBOX        "Enrichment",IDC_STATIC,183,354,336,102
+    LTEXT           "X (deg)",IDC_STATIC,265,373,24,8
+    LTEXT           "Y (deg)",IDC_STATIC,265,388,27,10
+    LTEXT           "% Time Centered At\nPeripheral Location (0-100)",IDC_STATIC,192,403,88,17
+    LTEXT           "Periph X Radius (deg)",IDC_STATIC,192,426,70,8
+    LTEXT           "Periph Y Radius (deg)",IDC_STATIC,192,440,70,8
+    EDITTEXT        IDC_PeriphXPosR,297,371,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PeriphYPosR,297,387,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PeriphXRadius,283,421,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PeriphYRadius,283,438,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PctTimeAtPeriph,283,404,22,14,ES_AUTOHSCROLL
+    LTEXT           "%",IDC_STATIC,309,407,14,8
+    LTEXT           "Right eye position when left eye at 0",IDC_STATIC,193,376,65,16
+    CONTROL         "Iterate Through All Positions In Random Order",IDC_CHECK_SEQ_RANDOM,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,368,164,10
+    EDITTEXT        IDC_NumRandomRepeats,89,384,40,14,ES_AUTOHSCROLL
+    CONTROL         "Display Noise Background",IDC_UseNoise,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,475,97,14
+    LTEXT           "Number of repeats:",IDC_STATIC,21,387,64,8
+    LTEXT           "Countdown",IDC_COUNTDOWN,22,401,71,8
+    LTEXT           "Red (0-255)",IDC_STATIC,161,484,46,14
+    EDITTEXT        IDC_NoiseRed,219,484,40,14,ES_AUTOHSCROLL
+    LTEXT           "Green (0-255)",IDC_STATIC,161,501,50,14
+    EDITTEXT        IDC_NoiseGreen,219,501,40,14,ES_AUTOHSCROLL
+    LTEXT           "Blue (0-255)",IDC_STATIC,161,519,43,14
+    EDITTEXT        IDC_NoiseBlue,219,519,40,14,ES_AUTOHSCROLL
+    CONTROL         "",IDC_NoiseStatic,"Static",SS_BLACKFRAME | WS_BORDER,266,485,22,22
+    LTEXT           "Red (0-255)",IDC_STATIC,540,364,46,14
+    EDITTEXT        IDC_PeriphTertiaryRed,598,364,40,14,ES_AUTOHSCROLL
+    LTEXT           "Green (0-255)",IDC_STATIC,540,381,50,14
+    EDITTEXT        IDC_PeriphTertiaryGreen,598,381,40,14,ES_AUTOHSCROLL
+    LTEXT           "Blue (0-255)",IDC_STATIC,540,399,43,14
+    EDITTEXT        IDC_PeriphTertiaryBlue,598,399,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Tertiary Color",IDC_STATIC,527,351,147,67
+    CONTROL         "",IDC_PeriphTertiaryStatic,"Static",SS_BLACKFRAME | WS_BORDER,645,365,22,22
+    GROUPBOX        "Background  Noise",IDC_STATIC,7,466,286,72
+    CONTROL         "Tertiary Color",IDC_PeriphRadioTertiary,"Button",BS_AUTORADIOBUTTON,441,239,60,10
+    EDITTEXT        IDC_NumCatchTrials,469,273,22,14,ES_AUTOHSCROLL
+    LTEXT           "Red Catch Trials",IDC_STATIC,461,262,54,8
+    CONTROL         "Grid",IDC_GridSteps,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,334,271,57,10
+    EDITTEXT        IDC_NoiseSize,31,517,40,14,ES_AUTOHSCROLL
+    LTEXT           "Noise Size (pixels)",IDC_STATIC,14,505,58,8
+    LTEXT           "Crosshair Thickness (pixels)",IDC_STATIC,19,91,89,8
+    EDITTEXT        IDC_CrossPix,121,89,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NumBlankTrials,469,324,22,14,ES_AUTOHSCROLL
+    LTEXT           "Blank Trials",IDC_STATIC,461,314,36,8
+    EDITTEXT        IDC_NoisePct,99,517,40,14,ES_AUTOHSCROLL
+    LTEXT           "Percent (1-100)",IDC_STATIC,94,505,52,8
+    CONTROL         "Wait For Response to Dimmed Center",IDC_UseDim,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,421,480,134,10
+    LTEXT           "Dim Timeout (ms)",IDC_STATIC,420,501,56,8
+    LTEXT           "Answer Period Duration (ms)",IDC_STATIC,420,520,92,8
+    LTEXT           "Dim Onset Min (ms)",IDC_STATIC,569,501,62,8
+    LTEXT           "Dim Onset Max (ms)",IDC_STATIC,568,520,65,8
+    EDITTEXT        IDC_DimOnsetMin,637,499,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DimOnsetMax,637,519,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DimTimeout,518,500,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AnswerPeriod,518,520,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Dimming",IDC_STATIC,404,466,280,72
+    LTEXT           "Brightness (0-100)",IDC_STATIC,569,481,60,8
+    EDITTEXT        IDC_DimBrightness,637,479,40,14,ES_AUTOHSCROLL
+    CONTROL         "Hide Center Target During Peripheral Display",IDC_HideCenter,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,178,136,156,10
+    CONTROL         "Interleave Noise/Blank Backgrounds",IDC_InterleaveNoise,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,490,135,10
+    CONTROL         "One Degree Center Points",IDC_CenterPoints,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,334,298,100,10
+    CONTROL         "Pause",IDC_Pause,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,136,436,35,10
+    PUSHBUTTON      "Regenerate Random Sequence",IDC_BUTTON2,20,424,105,14
+    CONTROL         "Off Axis Points",IDC_OffAxis,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,334,258,63,10
+    CONTROL         "Wait For Repsonse Coding",IDC_Response,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,273,10,101,10
+    LTEXT           "0=red\t1=both\t2=blue\n3=blank\t4=ignore trial\tx=note",IDC_STATIC,289,41,110,19
+    EDITTEXT        IDC_ResponseTimeout,370,24,40,14,ES_AUTOHSCROLL
+    LTEXT           "Response Timeout (ms)",IDC_STATIC,291,26,76,8
+    LTEXT           "X (deg)",IDC_STATIC,443,374,24,8
+    LTEXT           "Y (deg)",IDC_STATIC,443,388,25,8
+    LTEXT           "Left eye position when right eye at 0",IDC_STATIC,373,377,64,17
+    EDITTEXT        IDC_PeriphXPosL,473,370,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PeriphYPosL,473,386,40,14,ES_AUTOHSCROLL
+    CONTROL         "Ramp Up Dot Color",IDC_RampUp,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,530,425,77,10
+    EDITTEXT        IDC_RampDuration,614,440,40,14,ES_AUTOHSCROLL
+    LTEXT           "Ramp-Up Duration (ms)",IDC_STATIC,532,442,76,8
+    CONTROL         "",IDC_LeftEyeStatic,"Static",SS_BLACKFRAME,420,6,76,54
+    CONTROL         "",IDC_RightEyeStatic,"Static",SS_BLACKFRAME,499,6,76,54
+    PUSHBUTTON      "Catch Trial Sequence",IDC_BUTTON6,20,442,77,14,NOT WS_VISIBLE
+    LTEXT           "Red Catch Trial Score",IDC_CatchPctR,610,14,70,8
+    LTEXT           "Blue Catch Trial Score",IDC_CatchPctB,610,25,70,8
+    LTEXT           "Blank Catch Trial Score",IDC_CatchPctN,610,36,74,8
+    EDITTEXT        IDC_PctTimeAtCenter,462,405,22,14,ES_AUTOHSCROLL
+    LTEXT           "% Time Centered At\nFixation Location (0-100)",IDC_STATIC,376,404,82,17
+    EDITTEXT        IDC_NumCatchTrials2,469,298,22,14,ES_AUTOHSCROLL
+    LTEXT           "Blue Catch Trials",IDC_STATIC,461,288,54,10
+    LTEXT           "%",IDC_STATIC,490,408,14,8
+    LTEXT           "Center X Radius (deg)",IDC_STATIC,376,427,72,8
+    LTEXT           "Center Y Radius (deg)",IDC_STATIC,376,441,72,8
+    EDITTEXT        IDC_CenterXRadius,461,422,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CenterYRadius,461,439,40,14,ES_AUTOHSCROLL
+    LTEXT           "%",IDC_STATIC,500,275,12,8
+    LTEXT           "%",IDC_STATIC,500,302,14,8
+    LTEXT           "%",IDC_STATIC,500,326,10,8
+    LTEXT           "Overall Counter",IDC_COUNTDOWN2,22,412,71,8
+    CONTROL         "P",IDC_ViewPurple,"Button",BS_AUTORADIOBUTTON,579,12,20,10
+    CONTROL         "R",IDC_ViewRed,"Button",BS_AUTORADIOBUTTON,579,28,21,10
+    CONTROL         "B",IDC_ViewBlue,"Button",BS_AUTORADIOBUTTON,579,44,20,10
+    CONTROL         "Use position from eye trackers",IDC_AutoPosition,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,194,361,113,10
+END
+
+IDD_SUPPRESSION_DLG DIALOGEX 100, 40, 423, 328
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Flicker Fusion",IDC_FFTest,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,20,15,59,10
+    CONTROL         "Minimum Motion",IDC_MMTest,"Button",BS_AUTORADIOBUTTON,20,25,66,10
+    CONTROL         "Minimum Motion with sine wave gratings",IDC_MMSineGratings,
+                    "Button",BS_AUTORADIOBUTTON,20,35,143,10
+    CONTROL         "Minimum Motion Multiple Gratings",IDC_MMMG,"Button",BS_AUTORADIOBUTTON,19,44,121,10
+    GROUPBOX        "Options",IDC_STATIC,18,54,163,129
+    LTEXT           "Grid Spacing (times 4, in pixels)",IDC_STATIC,29,69,100,8
+    EDITTEXT        IDC_GridSpace,131,68,40,14,ES_AUTOHSCROLL
+    LTEXT           "Grid Size (num blocks per side)",IDC_STATIC,29,89,98,8
+    EDITTEXT        IDC_GridSize,131,87,40,14,ES_AUTOHSCROLL
+    LTEXT           "Red",IDC_STATIC,29,114,14,8
+    CONTROL         "",IDC_RedScroll,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,23,124,149,15
+    LTEXT           "Static",IDC_RedStatic,155,114,19,8
+    LTEXT           "Blue",IDC_STATIC,29,146,14,8
+    LTEXT           "Static",IDC_BlueStatic,155,146,19,8
+    CONTROL         "",IDC_BlueScroll,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,23,158,150,15
+    CONTROL         "Red Block",IDC_RedBlock,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,201,58,47,10
+    CONTROL         "Blue Block",IDC_BlueBlock,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,201,71,47,10
+    CONTROL         "Show Text Values",IDC_TextValues,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,201,82,73,10
+    EDITTEXT        IDC_StripeHeight,365,61,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Delayms,365,82,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_bgStripeLightRed,353,111,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_bgStripeLightGreen,353,128,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_bgStripeLightBlue,353,146,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_bgStripeDarkRed,353,170,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_bgStripeDarkGreen,353,187,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_bgStripeDarkBlue,353,205,40,14,ES_AUTOHSCROLL
+    CONTROL         "Adjust Background",IDC_AdjustBG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,309,229,76,10
+    EDITTEXT        IDC_Delay,192,137,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE | WS_DISABLED
+    LTEXT           "Red",IDC_STATIC,331,114,14,8
+    LTEXT           "Green",IDC_STATIC,331,130,20,8
+    LTEXT           "Blue",IDC_STATIC,331,147,14,8
+    LTEXT           "Red",IDC_STATIC,331,173,14,8
+    LTEXT           "Green",IDC_STATIC,331,189,20,8
+    LTEXT           "Blue",IDC_STATIC,331,207,14,8
+    GROUPBOX        "Background Stripes",IDC_STATIC,271,101,135,126
+    LTEXT           "Light",IDC_STATIC,281,117,16,8
+    LTEXT           "Dark",IDC_STATIC,281,176,16,8
+    PUSHBUTTON      "Apply Changes",IDC_ButtonApply,202,307,80,14
+    LTEXT           "Delay (ms)",IDC_STATIC,327,84,35,8
+    LTEXT           "Stripe Height (deg)",IDC_STATIC,299,63,62,8
+    LTEXT           "Max Dot Time (ms)",IDC_STATIC,26,226,60,8
+    EDITTEXT        IDC_DotTime,91,224,40,14,ES_AUTOHSCROLL
+    LTEXT           "Display Time (ms)",IDC_STATIC,30,210,56,8
+    EDITTEXT        IDC_DisplayTime,91,208,40,14,ES_AUTOHSCROLL
+    LTEXT           "Off Time (ms)",IDC_STATIC,42,242,44,8
+    EDITTEXT        IDC_OffTime,91,240,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SpatialFreq,132,258,40,14,ES_AUTOHSCROLL
+    LTEXT           "Spatial Frequency (cyc/deg)",IDC_STATIC,34,261,91,8
+    GROUPBOX        "Sine Wave OKN Options",IDC_STATIC,18,196,162,115
+    CONTROL         "Up/Down",IDC_RBUpDown,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,29,275,45,10
+    CONTROL         "Random Red, 255 Blue",IDC_RBRandom,"Button",BS_AUTORADIOBUTTON,29,286,89,10
+    CONTROL         "Slider values",IDC_RBSlider,"Button",BS_AUTORADIOBUTTON,29,297,56,10
+    EDITTEXT        IDC_NumGratings,312,271,40,14,ES_AUTOHSCROLL
+    LTEXT           "Number of Gratings:",IDC_STATIC,243,274,66,8
+    CONTROL         "Blue 255",IDC_MultipleFullBlue,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,140,46,43,10
+END
+
+IDD_ALTERNATION_DLG DIALOGEX 140, 40, 332, 286
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Apply Changes",IDC_APPLY,127,258,81,14
+    EDITTEXT        IDC_DotSize1,97,86,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Dot 1",IDC_STATIC,15,69,145,149
+    GROUPBOX        "Dot 2",IDC_STATIC,181,68,128,150
+    LTEXT           "X Position (deg)",IDC_STATIC,31,110,55,14
+    LTEXT           "Y Position (deg)",IDC_STATIC,31,134,54,14
+    LTEXT           "Dot Radius (deg)",IDC_STATIC,31,89,55,8
+    LTEXT           "X Position (deg)",IDC_STATIC,194,104,55,14
+    LTEXT           "Y Position (deg)",IDC_STATIC,194,125,54,10
+    LTEXT           "Dot Radius (deg)",IDC_STATIC,194,85,55,8
+    LTEXT           "Red (0-255)",IDC_STATIC,31,162,40,8
+    LTEXT           "Green (0-255)",IDC_STATIC,31,179,46,8
+    LTEXT           "Blue (0-255)",IDC_STATIC,31,196,40,8
+    LTEXT           "Red (0-255)",IDC_STATIC,194,158,40,8
+    LTEXT           "Green (0-255)",IDC_STATIC,194,177,46,8
+    LTEXT           "Blue (0-255)",IDC_STATIC,194,195,40,8
+    EDITTEXT        IDC_XPos1,97,108,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_YPos1,97,132,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Red1,97,159,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Green1,97,177,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Blue1,97,194,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DotSize2,254,82,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_XPos2,254,101,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_YPos2,254,122,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Red2,252,157,40,14,ES_AUTOHSCROLL
+    EDITTEXT        1383,252,175,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Blue2,252,192,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Diamond,252,225,40,14,ES_AUTOHSCROLL
+    LTEXT           "Diamond Spacing (deg)",IDC_STATIC,174,227,74,8
+END
+
+IDD_MSEQUENCE_DLG DIALOGEX 200, 50, 431, 359
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Apply Changes",IDC_ButtonApply,156,298,80,14
+    EDITTEXT        IDC_Order,156,36,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Tap,156,56,40,14,ES_AUTOHSCROLL
+    LTEXT           "Order",IDC_STATIC,104,41,20,8
+    LTEXT           "Tap",IDC_STATIC,104,57,13,8
+    LTEXT           "Delay",IDC_STATIC,105,178,19,8
+    LTEXT           "Thickness (pixels)",IDC_STATIC,105,198,57,8
+    EDITTEXT        IDC_Delay,163,176,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Width,163,196,40,14,ES_AUTOHSCROLL
+    LTEXT           "Num Bars Shown",IDC_STATIC,105,244,54,8
+    EDITTEXT        IDC_NumBars,163,241,40,14,ES_AUTOHSCROLL
+    LTEXT           "Length (pixels)",IDC_STATIC,105,217,48,8
+    EDITTEXT        IDC_Height,163,215,40,14,ES_AUTOHSCROLL
+    LTEXT           "Current Offset",IDC_CurrentOffset,210,272,104,8
+    LTEXT           "Horiz Center (deg)",IDC_STATIC,233,157,60,8
+    LTEXT           "Vert Center (deg)",IDC_STATIC,233,171,58,8
+    EDITTEXT        IDC_HCenter,300,153,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_VCenter,300,169,40,14,ES_AUTOHSCROLL
+    CONTROL         "Textmarks",IDC_Textmarks,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,315,252,49,10
+    GROUPBOX        "Bars",IDC_STATIC,79,7,345,284
+    EDITTEXT        IDC_Order2,229,37,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Tap2,229,57,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Order3,299,38,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Tap3,299,58,40,14,ES_AUTOHSCROLL
+    LTEXT           "Red",IDC_STATIC,167,18,16,8
+    LTEXT           "Green",IDC_STATIC,238,18,20,8
+    LTEXT           "Blue",IDC_STATIC,309,17,16,8
+    CONTROL         "Horizontal",IDC_Horiz,"Button",BS_AUTORADIOBUTTON,315,198,48,10
+    CONTROL         "Vertical",IDC_Vert,"Button",BS_AUTORADIOBUTTON,315,212,39,10
+    CONTROL         "Alternate",IDC_ALTERNATE,"Button",BS_AUTORADIOBUTTON,315,226,46,10
+    LTEXT           "Orientation:",IDC_STATIC,259,211,40,8
+    LTEXT           "R",IDC_STATIC,141,90,8,8
+    LTEXT           "G",IDC_STATIC,141,107,8,8
+    LTEXT           "B",IDC_STATIC,141,125,8,8
+    EDITTEXT        IDC_RedR,155,87,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RedG,155,105,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RedB,155,124,40,14,ES_AUTOHSCROLL
+    LTEXT           "R",IDC_STATIC,216,89,8,8
+    LTEXT           "G",IDC_STATIC,216,106,8,8
+    LTEXT           "B",IDC_STATIC,216,124,8,8
+    EDITTEXT        IDC_GreenR,231,86,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_GreenG,231,105,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_GreenB,231,124,40,14,ES_AUTOHSCROLL
+    LTEXT           "R",IDC_STATIC,285,88,8,8
+    LTEXT           "G",IDC_STATIC,285,105,8,8
+    LTEXT           "B",IDC_STATIC,285,123,8,8
+    EDITTEXT        IDC_BlueR,299,85,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_BlueG,299,103,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_BlueB,299,122,40,14,ES_AUTOHSCROLL
+END
+
+IDD_RULER_DLG DIALOGEX 200, 50, 340, 224
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Apply Changes",IDOK,122,203,85,14
+    LTEXT           "Number of rings:",IDC_STATIC,113,107,54,8
+    EDITTEXT        IDC_NumRings,173,105,40,14,ES_AUTOHSCROLL
+    CONTROL         "Box (60x30deg outer, .5deg thick)",IDC_Box,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,134,88,127,10
+END
+
+IDD_AMBLYOSCOPE_DLG DIALOGEX 80, 50, 603, 460
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_BORDER | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Hands-Clock",IDC_Clock,"Button",BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP,148,62,55,10
+    CONTROL         "Bird-Cage",IDC_Bird,"Button",BS_AUTORADIOBUTTON | WS_DISABLED,148,77,47,10
+    CONTROL         "Cross-Cross",IDC_Cross,"Button",BS_AUTORADIOBUTTON | WS_DISABLED,148,92,55,10
+    CONTROL         "Left-Right",IDC_LeftRight,"Button",BS_AUTORADIOBUTTON | WS_DISABLED,148,107,48,10
+    DEFPUSHBUTTON   "Apply Changes",IDOK,520,439,76,14
+    LTEXT           "Periph",IDC_Llabel,415,6,33,8
+    LTEXT           "X",IDC_STATIC,269,6,8,8
+    LTEXT           "X",IDC_XOffset,285,6,31,8
+    LTEXT           "Y",IDC_STATIC,269,20,8,8
+    LTEXT           "Y",IDC_YOffset,285,20,31,8
+    LTEXT           "Center",IDC_Rlabel,534,6,33,8
+    LTEXT           "Red",IDC_STATIC,415,21,14,8
+    LTEXT           "Green",IDC_STATIC,415,37,20,8
+    LTEXT           "Blue",IDC_STATIC,415,55,14,8
+    LTEXT           "Red",IDC_STATIC,534,23,14,8
+    LTEXT           "Green",IDC_STATIC,534,39,20,8
+    LTEXT           "Blue",IDC_STATIC,534,57,14,8
+    EDITTEXT        IDC_LRed,437,20,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LGreen,437,37,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LBlue,437,54,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RRed,556,21,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RGreen,556,38,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RBlue,556,55,40,14,ES_AUTOHSCROLL
+    LTEXT           "X",IDC_XOffsetDeg,327,6,64,8
+    LTEXT           "Y",IDC_YOffsetDeg,327,20,64,8
+    GROUPBOX        "0",IDC_STATIC,297,220,15,16
+    LTEXT           "(middle-click to swap colors)",IDC_STATIC,311,72,90,8
+    LTEXT           "('P' toggle periph, 'C' toggle center)",IDC_STATIC,311,83,114,8
+    CONTROL         "Background",IDC_Background,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,305,42,53,10
+    CONTROL         "Flash Test",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,367,49,10
+    EDITTEXT        IDC_PctMonocular,72,379,40,14,ES_AUTOHSCROLL
+    LTEXT           "% monocular",IDC_STATIC,7,382,43,8
+    EDITTEXT        IDC_EDIT2,72,64,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT9,72,81,40,14,ES_AUTOHSCROLL
+    LTEXT           "Flash duration (ms)",IDC_STATIC,7,66,62,8
+    LTEXT           "Blank duration (ms)",IDC_STATIC,7,83,62,8
+    EDITTEXT        IDC_DeviatedRightX,35,422,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DeviatedRightY,35,439,40,14,ES_AUTOHSCROLL
+    LTEXT           "X (deg)",IDC_STATIC,7,425,24,8
+    LTEXT           "Y (deg)",IDC_STATIC,8,439,24,8
+    LTEXT           "Right Eye Position, left eye at center",IDC_STATIC,10,402,66,17
+    EDITTEXT        IDC_DeviatedLeftX,116,422,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DeviatedLeftY,116,439,40,14,ES_AUTOHSCROLL
+    LTEXT           "X (deg)",IDC_STATIC,88,425,24,8
+    LTEXT           "Y (deg)",IDC_STATIC,89,439,24,8
+    LTEXT           "Left Eye Position, right eye at center",IDC_STATIC,91,402,66,17
+    CONTROL         "Center Red",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,14,278,53,10
+    CONTROL         "Center Blue",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,14,291,53,10
+    CONTROL         "Random",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,14,305,42,10
+    CONTROL         "Blocks",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,14,318,35,10
+    EDITTEXT        IDC_FlashBlocks,65,315,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SpaceSize,81,39,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ArmWidth,81,23,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ArmLength,81,6,40,14,ES_AUTOHSCROLL
+    LTEXT           "Arm Length (Pixels)",IDC_STATIC,7,9,63,8
+    LTEXT           "Arm Width (Pixels)",IDC_STATIC,7,25,60,8
+    LTEXT           "Space Size (Pixels)",IDC_STATIC,7,41,60,8
+    LTEXT           "Desc",IDC_ArmStatic,128,6,72,23
+    CONTROL         "Fixation Dot",IDC_FixationDot,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,132,55,10
+    LTEXT           "X (deg)",IDC_STATIC,7,148,24,8
+    LTEXT           "Y (deg)",IDC_STATIC,7,165,24,8
+    LTEXT           "Size (deg)",IDC_STATIC,7,181,33,8
+    EDITTEXT        IDC_FixationX,45,145,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FixationY,45,162,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FixationSize,45,179,40,14,ES_AUTOHSCROLL
+    LTEXT           "X (deg)",IDC_STATIC,15,226,24,8
+    LTEXT           "Y (deg)",IDC_STATIC,15,242,24,8
+    GROUPBOX        "Center Arm Position",IDC_STATIC,7,212,83,48
+    EDITTEXT        IDC_CenterX,44,225,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CenterY,44,241,40,14,ES_AUTOHSCROLL
+    LTEXT           "Brightness %",IDC_STATIC,305,57,44,8
+    EDITTEXT        IDC_BGBrightness,357,54,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Fixation Arm/Dot Color",IDC_STATIC,7,265,101,69
+    CONTROL         "Alternate Colors (no blank period)",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,103,124,10
+    LTEXT           "Eye Positions",IDC_EyePositions,139,149,128,149
+    CONTROL         "Display on fovea",IDC_Fovea,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,138,136,69,10
+END
+
+IDD_SCOTOMA_MAP_DLG DIALOGEX 60, 30, 727, 501
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_PrimaryRed,58,91,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PrimaryGreen,83,91,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PrimaryBlue,108,91,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SecondaryRed,58,123,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SecondaryGreen,83,123,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SecondaryBlue,108,123,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TertiaryRed,58,155,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TertiaryGreen,83,155,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TertiaryBlue,108,155,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ResponseDelay,125,225,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MisbehaviorDelay,125,242,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CenterDotSize,283,92,48,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CrossPix,291,109,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CenterYPos,305,126,26,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CenterXPos,246,126,26,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DisplayTime,419,106,59,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DisplayRandMin,443,146,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DisplayRandMax,443,167,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AlternateBlockSize,563,148,58,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PeriphDotSize,281,211,63,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_StepSize,281,227,63,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NumStepsH,281,243,63,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NumStepsV,281,259,63,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FlashInterval,281,291,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FlashIntervalRandMin,273,321,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FlashIntervalRandMax,273,339,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NumCatchTrials,471,276,22,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NumCatchTrials2,471,300,22,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NumBlankTrials,471,327,22,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NumRandomRepeats,465,480,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    EDITTEXT        IDC_TertiaryRewardPct,82,322,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RewardDelay,129,348,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_WrongDelay,129,366,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PctTimeAtPeriph,280,376,22,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PeriphXRadius,473,366,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PeriphYRadius,473,382,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PctTimeAtCenter,280,412,22,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CenterXRadius,473,398,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CenterYRadius,473,414,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RampDuration,231,472,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    EDITTEXT        IDC_NoiseSize,558,276,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NoisePct,626,276,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NoiseRed,605,300,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NoiseGreen,605,316,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NoiseBlue,605,335,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Color Options",IDC_STATIC,527,91,146,102
+    CONTROL         "Primary Color",IDC_CenterRadioPrimary,"Button",BS_AUTORADIOBUTTON,535,103,59,10
+    CONTROL         "Secondary Color",IDC_CenterRadioSecondary,"Button",BS_AUTORADIOBUTTON,535,114,69,10
+    CONTROL         "Alternate",IDC_CenterRadioAlternate,"Button",BS_AUTORADIOBUTTON,535,126,46,10
+    CONTROL         "Randomize",IDC_CenterRadioRandomize,"Button",BS_AUTORADIOBUTTON,535,167,51,10
+    CONTROL         "Global Dot Color",IDC_CenterRadioGlobalDot,"Button",BS_AUTORADIOBUTTON,535,179,67,10
+    DEFPUSHBUTTON   "Apply Changes",IDC_ButtonApply,313,474,71,14
+    GROUPBOX        "Peripheral Target",IDC_STATIC,175,201,351,268
+    GROUPBOX        "Center Target",IDC_STATIC,177,78,502,119
+    LTEXT           "Position (deg)  X",IDC_STATIC,189,128,53,9
+    LTEXT           " Y",IDC_STATIC,292,128,8,8
+    LTEXT           "Flash Duration (ms)",IDC_STATIC,191,293,65,14
+    LTEXT           "Step Size  (deg)",IDC_STATIC,191,228,55,14
+    LTEXT           "Number of Steps (horiz)",IDC_STATIC,191,245,86,11
+    LTEXT           "Crosshair Diameter (deg)",IDC_STATIC,189,95,81,8
+    LTEXT           "Dot Radius Size (deg)",IDC_STATIC,191,213,70,8
+    LTEXT           "RGB (0-255)",IDC_STATIC,13,125,41,10
+    CONTROL         "Primary Color",IDC_PeriphRadioPrimary,"Button",BS_AUTORADIOBUTTON,443,217,59,10
+    GROUPBOX        "Color Options",IDC_STATIC,436,209,84,147
+    CONTROL         "Secondary Color",IDC_PeriphRadioSecondary,"Button",BS_AUTORADIOBUTTON,443,229,69,10
+    CONTROL         "Alternate Pri-Sec",IDC_PeriphRadioAlternate,"Button",BS_AUTORADIOBUTTON,443,342,70,10
+    CONTROL         "Randomize",IDC_PeriphRadioRandomize,"Button",BS_AUTORADIOBUTTON,443,252,51,10
+    LTEXT           "RGB (0-255)",IDC_STATIC,13,93,41,10
+    GROUPBOX        "Primary Color Red",IDC_STATIC,7,79,154,31
+    GROUPBOX        "Secondary Color Blue",IDC_STATIC,7,111,154,31
+    LTEXT           "Number of Repititions in Block",IDC_STATIC,564,137,95,8
+    LTEXT           "Incorrect Response Timeout (ms)",IDC_STATIC,7,369,107,8
+    LTEXT           "Display Time (ms)",IDC_STATIC,355,108,56,8
+    LTEXT           "Number of Steps (vert)",IDC_STATIC,191,261,86,11
+    CONTROL         "Avoid Zero",IDC_AvoidZero,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,589,470,51,10
+    CONTROL         "Randomize Durations",IDC_RandomizeDisplayTime,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,361,132,83,10
+    CONTROL         "Randomize Durations",IDC_RandomizeFlashInterval,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,189,310,83,10
+    GROUPBOX        "",IDC_STATIC,353,121,139,65
+    LTEXT           "Minimum Duration (ms)",IDC_STATIC,359,148,73,8
+    LTEXT           "Maximum Duration (ms)",IDC_STATIC,359,167,76,8
+    GROUPBOX        "",IDC_STATIC,181,304,137,53
+    LTEXT           "Minimum Duration (ms)",IDC_STATIC,189,324,73,8
+    LTEXT           "Maximum Duration (ms)",IDC_STATIC,189,340,76,8
+    CONTROL         "",IDC_SecondaryStatic,"Static",SS_BLACKFRAME | WS_BORDER,134,117,22,22
+    CONTROL         "",IDC_PrimaryStatic,"Static",SS_BLACKFRAME | WS_BORDER,134,85,22,22
+    GROUPBOX        "Enrichment",IDC_STATIC,182,359,338,106
+    LTEXT           "% Time Centered At\nPeripheral Location (0-100)",IDC_STATIC,186,375,88,17
+    LTEXT           "Periph X Size (deg)",IDC_STATIC,406,370,61,8
+    LTEXT           "Periph Y Size (deg)",IDC_STATIC,406,386,61,8
+    LTEXT           "%",IDC_STATIC,306,378,14,8
+    CONTROL         "Display Noise Background",IDC_UseNoise,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,541,214,97,14
+    LTEXT           "Number of repeats:",IDC_STATIC,397,484,64,8,NOT WS_VISIBLE
+    LTEXT           "Countdown",IDC_COUNTDOWN,7,446,136,32
+    LTEXT           "Red (0-255)",IDC_STATIC,547,300,46,14
+    LTEXT           "Green (0-255)",IDC_STATIC,547,316,50,14
+    LTEXT           "Blue (0-255)",IDC_STATIC,547,335,43,14
+    CONTROL         "",IDC_NoiseStatic,"Static",SS_BLACKFRAME | WS_BORDER,652,300,22,22
+    LTEXT           "RGB (0-255)",IDC_STATIC,13,157,43,10
+    GROUPBOX        "Tertiary Color Purple",IDC_STATIC,7,143,154,31
+    CONTROL         "",IDC_TertiaryStatic,"Static",SS_BLACKFRAME | WS_BORDER,134,149,22,22
+    GROUPBOX        "Background  Noise",IDC_STATIC,534,205,156,150
+    CONTROL         "Tertiary Color",IDC_PeriphRadioTertiary,"Button",BS_AUTORADIOBUTTON,443,240,60,10
+    LTEXT           "Red Catch Trials",IDC_STATIC,463,265,54,8
+    LTEXT           "Noise Size (pixels)",IDC_STATIC,541,265,58,8
+    LTEXT           "Crosshair Thickness (pixels)",IDC_STATIC,189,111,89,8
+    LTEXT           "Blank Trials",IDC_STATIC,463,316,36,8
+    LTEXT           "Percent (1-100)",IDC_STATIC,621,265,52,8
+    CONTROL         "Hide Center Target During Peripheral Display",IDC_HideCenter,
+                    "Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,365,94,156,10
+    CONTROL         "Interleave Noise/Blank Backgrounds",IDC_InterleaveNoise,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,541,238,135,10
+    CONTROL         "One Degree Center Points",IDC_CenterPoints,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,601,460,100,10
+    CONTROL         "Pause (Dot on)",IDC_Pause,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,408,64,10
+    PUSHBUTTON      "Regenerate Random Sequence",IDC_BUTTON2,615,480,105,14,NOT WS_VISIBLE
+    CONTROL         "Off Axis Points",IDC_OffAxis,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,531,460,63,10
+    LTEXT           "Response Delay (ms)",IDC_STATIC,41,227,68,8
+    CONTROL         "Ramp Up Dot Color",IDC_RampUp,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,153,469,77,10
+    LTEXT           "Ramp-Up Duration (ms)",IDC_STATIC,152,479,76,8,NOT WS_VISIBLE
+    CONTROL         "",IDC_LeftEyeStatic,"Static",SS_BLACKFRAME,7,7,76,54
+    CONTROL         "",IDC_RightEyeStatic,"Static",SS_BLACKFRAME,89,7,76,54
+    PUSHBUTTON      "Catch Trial Sequence",IDC_BUTTON6,515,480,77,14,NOT WS_VISIBLE
+    LTEXT           "Red Catch Trial Score",IDC_CatchPctR,249,65,136,8
+    LTEXT           "Blue Catch Trial Score",IDC_CatchPctB,447,65,135,8
+    LTEXT           "% Time Centered At\nFixation Location (0-100)",IDC_STATIC,186,412,82,17
+    LTEXT           "Blue Catch Trials",IDC_STATIC,463,290,54,10
+    LTEXT           "%",IDC_STATIC,306,415,14,8
+    LTEXT           "Center X Size (deg)",IDC_STATIC,404,402,63,8
+    LTEXT           "Center Y Size (deg)",IDC_STATIC,404,418,63,8
+    LTEXT           "%",IDC_STATIC,502,278,12,8
+    LTEXT           "%",IDC_STATIC,502,305,14,8
+    LTEXT           "%",IDC_STATIC,502,329,10,8
+    LTEXT           "Overall Counter",IDC_COUNTDOWN2,515,472,71,8,NOT WS_VISIBLE
+    LTEXT           "Misbehavior Timeout Delay (ms)",IDC_STATIC,7,243,102,8
+    CONTROL         "Randomly for Correct Answers",IDC_RewardCorrect,"Button",BS_AUTORADIOBUTTON,14,283,114,10
+    GROUPBOX        "Reward Scheme",IDC_STATIC,7,260,137,83
+    CONTROL         "Any Answer",IDC_RewardAny,"Button",BS_AUTORADIOBUTTON,14,295,55,10
+    CONTROL         "Randomly for Tertiary Color",IDC_RewardTertiary,"Button",BS_AUTORADIOBUTTON,14,307,105,10
+    LTEXT           "% Time to Reward",IDC_STATIC,16,324,60,8
+    LTEXT           "Reward Delay (ms)",IDC_STATIC,52,350,62,8
+    CONTROL         "Training Mode",IDC_RewardTrainingMode,"Button",BS_AUTORADIOBUTTON,14,271,61,10
+    CONTROL         "Display During Trial Choice",IDC_DisplayDuringChoice,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,328,290,100,10
+    CONTROL         "Square/Triangle Shapes",IDC_UseShapes,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,328,301,92,10
+    LTEXT           "Number of steps (X)",IDC_STATIC,189,162,90,9
+    LTEXT           "Number of steps (Y)",IDC_STATIC,189,179,90,10
+    EDITTEXT        IDC_smNumStepsX,283,159,48,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_smNumStepsY,283,175,48,14,ES_AUTOHSCROLL
+    CONTROL         "Do not change background during trial",IDC_SameBG,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,541,227,138,10
+    LTEXT           "Blank Catch Trial Score",IDC_CatchPctN,594,65,109,11
+    CONTROL         "Occlude background pattern",IDC_OccludeBG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,541,248,107,10
+    EDITTEXT        IDC_PctTimeAtEnriched,280,444,22,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EnrichedXRadius,474,430,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EnrichedYRadius,474,446,40,14,ES_AUTOHSCROLL
+    LTEXT           "% Time Centered At\nAdditional Location (0-100)",IDC_STATIC,186,442,87,17
+    LTEXT           "%",IDC_STATIC,306,447,14,8
+    LTEXT           "X Size (deg)",IDC_STATIC,428,434,39,8
+    LTEXT           "Y Size (deg)",IDC_STATIC,428,450,39,8
+    EDITTEXT        IDC_EnrichedX,357,430,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EnrichedY,357,446,40,14,ES_AUTOHSCROLL
+    LTEXT           "X (deg)",IDC_STATIC,328,434,24,8
+    LTEXT           "Y (deg)",IDC_STATIC,328,448,24,8
+    CONTROL         "Gratings on Dots",IDC_DotGratings,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,328,312,69,10
+    EDITTEXT        IDC_DotGratingContrast,392,326,27,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DotGratingCycles,392,341,27,14,ES_AUTOHSCROLL
+    LTEXT           "Contrast (1-100)",IDC_STATIC,335,329,55,8
+    LTEXT           "%",IDC_STATIC,423,329,8,8
+    LTEXT           "Cycles/dot",IDC_STATIC,352,344,35,8
+    CONTROL         "",IDC_LeftEyeStaticR,"Static",SS_BLACKFRAME,207,7,76,54
+    CONTROL         "",IDC_RightEyeStaticR,"Static",SS_BLACKFRAME,289,7,76,54
+    CONTROL         "",IDC_LeftEyeStaticB,"Static",SS_BLACKFRAME,404,7,76,54
+    CONTROL         "",IDC_RightEyeStaticB,"Static",SS_BLACKFRAME,485,7,76,54
+    LTEXT           "Purple Trials",IDC_STATIC,15,65,40,8
+    LTEXT           "Red Trials",IDC_STATIC,208,65,32,8
+    LTEXT           "Blue Trials",IDC_STATIC,406,65,33,8
+    LTEXT           "Vertical separation (deg)",IDC_STATIC,191,276,86,11
+    EDITTEXT        IDC_SeparationV,281,275,40,14,ES_AUTOHSCROLL
+    CONTROL         "Keyboard response (ignore lever)",IDC_UseKeyboard,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,422,123,10
+    LTEXT           "Count",IDC_PurpleCount,65,65,88,8
+    LTEXT           "Total Trials",IDC_TotalTrials,593,49,86,8
+    CONTROL         "Pause (Dot off)",IDC_Pause2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,394,65,10
+    LTEXT           "Step size (deg)",IDC_STATIC,189,146,53,9
+    EDITTEXT        IDC_smStepSizeDeg,283,143,48,14,ES_AUTOHSCROLL
+    CONTROL         "Use Debug Responder",IDC_DebugResponderOn,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,186,87,10
+    CONTROL         "Use Debug Labels",IDC_DebugLabelsOn,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,197,73,10
+    CONTROL         "",IDC_smStatusDisplay,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,540,367,144,82
+    GROUPBOX        "Status",IDC_statusBorder,534,357,156,95
+END
+
+IDD_ANAGLYPH_DLG DIALOGEX 50, 50, 434, 201
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Apply Changes",IDOK,169,172,83,14
+    CONTROL         "Text",IDC_RadioText,"Button",BS_AUTORADIOBUTTON,16,94,31,10
+    EDITTEXT        IDC_Text,72,92,143,14,ES_AUTOHSCROLL
+    CONTROL         "Depth Map",IDC_RadioImage,"Button",BS_AUTORADIOBUTTON,16,113,51,10
+    EDITTEXT        IDC_Image,72,113,129,14,ES_AUTOHSCROLL
+    CONTROL         "Shapes",IDC_RadioShapes,"Button",BS_AUTORADIOBUTTON,16,132,39,10
+    EDITTEXT        IDC_Red,96,15,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Blue,96,50,40,14,ES_AUTOHSCROLL
+    LTEXT           "Red (0-255)",IDC_STATIC,24,18,40,8
+    LTEXT           "Blue (0-255)",IDC_STATIC,24,52,40,8
+    LTEXT           "Green(0-255)               0",IDC_STATIC,23,36,78,8
+    EDITTEXT        IDC_BGDisparity,281,25,40,14,ES_AUTOHSCROLL
+    LTEXT           "Background Disparity",IDC_STATIC,209,28,68,8
+    EDITTEXT        IDC_Noise,281,42,40,14,ES_AUTOHSCROLL
+    LTEXT           "Noise (0-100)%",IDC_STATIC,209,45,52,8
+    EDITTEXT        IDC_TextDisparity,350,92,40,14,ES_AUTOHSCROLL
+    LTEXT           "Disparity",IDC_STATIC,313,94,29,8
+    PUSHBUTTON      "Browse",IDC_BUTTON1,206,113,50,14
+    LTEXT           "Max Disparity (1-256)",IDC_STATIC,273,116,70,8
+    EDITTEXT        IDC_MaxDisparity,351,113,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Color",IDC_STATIC,7,7,136,63
+    GROUPBOX        "Display",IDC_STATIC,7,79,392,71
+    CONTROL         "Show disparity map instead of stereogram",IDC_ShowDisparity,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,210,63,151,10
+END
+
+IDD_GRATINGS_DLG DIALOGEX 10, 40, 606, 425
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Grating",IDC_STATIC,7,7,230,258
+    LTEXT           "Spatial Freq (cyc/deg)",IDC_STATIC,14,34,72,8
+    LTEXT           "Speed (deg/s)",IDC_STATIC,15,18,46,8
+    EDITTEXT        IDC_Speed,90,15,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_GratingWidth,90,32,40,14,ES_AUTOHSCROLL
+    CONTROL         "Square Wave (full field)",IDC_TypeSquare,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,22,52,91,10
+    CONTROL         "Sine Wave (full field)",IDC_TypeSine,"Button",BS_AUTORADIOBUTTON,22,66,82,10
+    CONTROL         "Grating Patch",IDC_TypeGabor,"Button",BS_AUTORADIOBUTTON,22,81,59,10
+    CONTROL         "Automatic RF Map",IDC_TypeAutoRFMap,"Button",BS_AUTORADIOBUTTON,22,198,74,10
+    LTEXT           "Diameter (deg)",IDC_STATIC,39,95,49,8
+    EDITTEXT        IDC_GaborSD,98,92,40,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Light",IDC_BUTTON1,151,35,50,14
+    CONTROL         "",IDC_LightPic,"Static",SS_BLACKFRAME | WS_BORDER,205,32,20,20
+    LTEXT           "RGB",IDC_LightText,151,53,73,8
+    PUSHBUTTON      "Dark",IDC_BUTTON2,151,75,50,14
+    CONTROL         "",IDC_DarkPic,"Static",SS_BLACKFRAME | WS_BORDER,205,72,20,20
+    LTEXT           "RGB",IDC_DarkText,153,94,73,8
+    LTEXT           "Unit Tag:",IDC_STATIC,60,273,30,8
+    EDITTEXT        IDC_UnitTag,96,271,84,14,ES_AUTOHSCROLL
+    LTEXT           "Initiation, Presentation, Blank, (shutter movement) Reward",IDC_STATIC,7,287,191,8
+    LTEXT           "Presentation Delay (ms)",IDC_STATIC,29,317,78,8
+    EDITTEXT        IDC_Delay,113,315,40,14,ES_AUTOHSCROLL
+    LTEXT           "Blank (ms)",IDC_STATIC,73,334,34,8
+    EDITTEXT        IDC_Blank,113,331,40,14,ES_AUTOHSCROLL
+    LTEXT           "Number of repeats:",IDC_STATIC,43,350,64,8
+    EDITTEXT        IDC_NumRepeats,113,347,40,14,ES_AUTOHSCROLL
+    LTEXT           "Presentation Counter",IDC_PresentationCounter,159,350,94,20
+    CONTROL         "Behaviorally Contingent",IDC_BEHAVIOR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,49,363,92,10
+    LTEXT           "Initiation Delay (ms)",IDC_STATIC,41,378,65,8
+    EDITTEXT        IDC_Initiation,113,375,40,14,ES_AUTOHSCROLL
+    LTEXT           "Reward Delay (ms)",IDC_STATIC,45,393,62,8
+    EDITTEXT        IDC_Reward,113,391,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Orientation (0-360)",IDC_STATIC,259,7,114,96
+    CONTROL         "Random",IDC_AngleRandom,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,265,22,42,10
+    CONTROL         "Static",IDC_AngleStatic,"Button",BS_AUTORADIOBUTTON,265,42,34,10
+    EDITTEXT        IDC_StaticAngle,311,41,40,14,ES_AUTOHSCROLL
+    CONTROL         "Rotate",IDC_AngleRotate,"Button",BS_AUTORADIOBUTTON | WS_DISABLED,265,62,38,10
+    LTEXT           "Total possibe:",IDC_NumAnglesStatic,265,82,46,8
+    EDITTEXT        IDC_NumAngles,317,81,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Phase (0-360)",IDC_STATIC,259,122,114,77
+    CONTROL         "Random",IDC_PhaseRandom,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,267,133,42,10
+    CONTROL         "Static",IDC_PhaseStatic,"Button",BS_AUTORADIOBUTTON,267,148,34,10
+    EDITTEXT        IDC_StaticPhase,317,146,40,14,ES_AUTOHSCROLL
+    CONTROL         "Animate",IDC_PhaseRotate,"Button",BS_AUTORADIOBUTTON | WS_DISABLED,267,162,42,10
+    LTEXT           "Total possibe:",IDC_NumAnglesStatic2,265,180,46,8
+    EDITTEXT        IDC_NumPhases,317,178,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Fixation Spot",IDC_STATIC,399,7,200,111
+    LTEXT           "Diameter (deg)",IDC_STATIC,406,23,49,8
+    EDITTEXT        IDC_DotSize,466,20,40,14,ES_AUTOHSCROLL
+    LTEXT           "Left Eye",IDC_STATIC,406,45,28,8
+    EDITTEXT        IDC_FixLocL,439,42,153,14,ES_AUTOHSCROLL
+    GROUPBOX        "Saccades",IDC_STATIC,399,127,114,94
+    CONTROL         "Use Saccades",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,413,137,60,10
+    LTEXT           "H Steps",IDC_STATIC,427,151,26,8
+    EDITTEXT        IDC_EDIT5,461,149,40,14,ES_AUTOHSCROLL
+    LTEXT           "V Steps",IDC_STATIC,428,169,25,8
+    EDITTEXT        IDC_EDIT6,461,166,40,14,ES_AUTOHSCROLL
+    LTEXT           "Step size",IDC_STATIC,424,185,30,8
+    EDITTEXT        IDC_EDIT7,461,183,40,14,ES_AUTOHSCROLL
+    LTEXT           "Gratings/saccade",IDC_STATIC,402,202,56,8
+    EDITTEXT        IDC_GratingsPerSaccade,461,199,40,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Apply",IDC_ButtonApply,247,404,50,14
+    GROUPBOX        "Shutter Control",IDC_STATIC,399,227,114,79
+    CONTROL         "Manual",IDC_ShutterManual,"Button",BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP | WS_TABSTOP,407,243,39,10
+    CONTROL         "Interleaved",IDC_ShutterInterleaved,"Button",BS_AUTORADIOBUTTON,407,257,53,10
+    CONTROL         "Random",IDC_ShutterRandom,"Button",BS_AUTORADIOBUTTON,407,288,42,10
+    LTEXT           "Groups of:",IDC_STATIC,428,274,35,8
+    EDITTEXT        IDC_ShutterInterleavedN,467,272,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ShutterDelay,113,299,40,14,ES_AUTOHSCROLL
+    LTEXT           "Shutter Movement Delay (ms)",IDC_STATIC,11,301,96,8
+    EDITTEXT        IDC_FixLocR,439,59,153,14,ES_AUTOHSCROLL
+    LTEXT           "Right Eye",IDC_STATIC,406,62,32,8
+    EDITTEXT        IDC_RFX,106,110,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RFY,106,126,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DevX,106,152,40,14,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_DevY,106,168,40,14,ES_AUTOHSCROLL | WS_DISABLED
+    LTEXT           "RF X (deg)",IDC_STATIC,40,113,35,8
+    LTEXT           "RF Y (deg)",IDC_STATIC,40,129,35,8
+    LTEXT           "Deviation X (deg)",IDC_STATIC,40,155,56,8
+    LTEXT           "Deviation Y (deg)",IDC_STATIC,40,171,56,8
+    LTEXT           "Deviation of right eye when left eye at 0",IDC_STATIC,39,186,131,8
+    LTEXT           "Location relative to fixation dot",IDC_STATIC,39,141,101,8
+    CONTROL         "Left Eye",IDC_RFMapL,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,51,209,43,10
+    CONTROL         "Right Eye",IDC_RFMapR,"Button",BS_AUTORADIOBUTTON,51,221,47,10
+    LTEXT           "RF result",IDC_RFL,99,210,55,8
+    LTEXT           "RF result",IDC_RFR,99,221,55,8
+    LTEXT           "Final grid size (deg)",IDC_STATIC,51,234,63,8
+    LTEXT           "Initial map size (deg)",IDC_STATIC,51,248,67,8
+    EDITTEXT        IDC_FinalSize,130,232,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_InitialSize,130,248,40,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Fill into grating RF",IDC_BUTTON3,161,214,70,14
+    GROUPBOX        "Eye Positions",IDC_STATIC,399,375,137,43
+    LTEXT           "",IDC_grEyePosnDisplayLX,385,400,25,11
+    LTEXT           "",IDC_grEyePosnDisplayLY,412,400,25,11
+    LTEXT           "Left",IDC_STATIC,403,391,14,8
+    LTEXT           "",IDC_grEyePosnDisplayRX,445,400,25,11
+    LTEXT           "",IDC_grEyePosnDisplayRY,472,400,25,11
+    LTEXT           "Right",IDC_STATIC,463,391,17,8
+    PUSHBUTTON      "Left eye auto",IDC_grLeftEyeAutoRF,151,111,50,14
+    PUSHBUTTON      "Right eye auto",IDC_grRightEyeAutoRF,179,130,53,14,BS_CENTER
+    LTEXT           "List of coordinates, without quotes, in the format\n     ""(x1, y1) (x2, y2)""\nWhite space is ignored. Duplicates are supported.",IDC_STATIC,420,82,166,28
+END
+
+IDD_TRIAL_SACCADES_DLG DIALOGEX 60, 30, 925, 501
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_tbsPrimaryRed,58,20,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsPrimaryGreen,83,20,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsPrimaryBlue,108,20,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsSecondaryRed,58,52,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsSecondaryGreen,83,52,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsSecondaryBlue,108,52,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsTertiaryRed,58,84,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsTertiaryGreen,83,84,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsTertiaryBlue,108,84,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsFixationFlashDelay,125,106,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsRewardDelay,125,124,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsMisbehaviorDelay,125,143,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsWrongDelay,125,162,40,14,ES_AUTOHSCROLL
+    CONTROL         "Spatiotopic maps",IDC_tbsEyeCoverageRadioSpatiotopic,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,14,210,67,10
+    CONTROL         "Retinotopic maps",IDC_tbsEyeCoverageRadioRetinotopic,
+                    "Button",BS_AUTORADIOBUTTON | WS_TABSTOP,14,222,68,10
+    CONTROL         "Use approx",IDC_tbsUseApprox,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_GROUP | WS_TABSTOP,22,235,53,10
+    LTEXT           "Description:",IDC_tbsEyeCoverageDescription,14,251,128,55
+    CONTROL         "Pause (Dot off)",IDC_tbsPauseDotOff,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,326,65,10
+    CONTROL         "Pause (Dot on)",IDC_tbsPauseDotOn,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,340,64,10
+    CONTROL         "Use Debug Labels",IDC_tbsDebugLabelsOn,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,79,326,73,10
+    CONTROL         "Debug Responder",IDC_tbsDebugResponderOn,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,79,340,73,10
+    EDITTEXT        IDC_tbsCenterDotSize,245,20,48,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsCrossPix,369,20,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsDisplayTime,486,20,59,14,ES_AUTOHSCROLL
+    CONTROL         "Position fixating eye on grid",IDC_tbsGridSettingsRadioRandom,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,187,72,131,10
+    CONTROL         "Position cyclopean eye on grid",IDC_tbsGridSettingsRadioCyclopean,
+                    "Button",BS_AUTORADIOBUTTON | WS_TABSTOP,187,84,112,10
+    EDITTEXT        IDC_tbsCenterXPosPrim,405,68,30,14,ES_AUTOHSCROLL | WS_GROUP
+    EDITTEXT        IDC_tbsCenterYPosPrim,405,84,29,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbscStepSizeDeg,522,67,29,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsNumStepsX,522,83,29,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsNumStepsY,522,99,30,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsDeviationAngle,522,114,29,14,ES_AUTOHSCROLL
+    LTEXT           "Description:",IDC_tbsGridSettingsDescription,187,101,131,60
+    CONTROL         "Randomize Fixation Time",IDC_tbsRandomizeDisplayTime,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,281,42,95,10
+    EDITTEXT        IDC_tbsDisplayRandMin,411,40,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsDisplayRandMax,500,40,40,14,ES_AUTOHSCROLL
+    CONTROL         "Display during flash",IDC_tbsShowCenterFlash,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,688,116,74,10
+    CONTROL         "Display during hold",IDC_tbsShowCenterHold,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,688,127,74,10
+    CONTROL         "Advance for either eye",IDC_tbsAdvanceEitherEye,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,688,156,86,10
+    CONTROL         "Primary Color",IDC_tbsCenterRadioPrimary,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,573,31,59,10
+    CONTROL         "Secondary Color",IDC_tbsCenterRadioSecondary,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,573,43,69,10
+    CONTROL         "Tertiary Color",IDC_tbsCenterRadioTertiary,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,573,55,60,10
+    CONTROL         "Alternate",IDC_tbsCenterRadioAlternate,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,573,67,46,10
+    CONTROL         "Randomize",IDC_tbsCenterRadioRandomize,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,573,105,51,10
+    EDITTEXT        IDC_tbsAlternateBlockSize,585,89,21,14,ES_AUTOHSCROLL | WS_GROUP
+    EDITTEXT        IDC_tbsPeriphDotSize,281,182,43,14,ES_AUTOHSCROLL
+    CONTROL         "Squares and triangles",IDC_tbsUseShapes,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,198,196,85,10
+    EDITTEXT        IDC_tbsFlashInterval,411,206,27,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsFlashIntervalRandMin,407,243,27,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsFlashIntervalRandMax,407,258,27,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsSaccadeHoldPeriod,405,352,43,14,ES_AUTOHSCROLL
+    CONTROL         "With target?",IDC_tbsDisplayDuringHoldPeriod,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,453,355,53,10
+    EDITTEXT        IDC_tbsTargetActivePeriod,541,354,43,14,ES_AUTOHSCROLL
+    CONTROL         "Primary Color",IDC_tbsPeriphRadioPrimary,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,199,224,54,10
+    CONTROL         "Secondary Color",IDC_tbsPeriphRadioSecondary,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,199,237,64,10
+    CONTROL         "Tertiary Color",IDC_tbsPeriphRadioTertiary,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,199,250,64,10
+    CONTROL         "Alternate",IDC_tbsPeriphRadioAlternate,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,199,263,42,10
+    CONTROL         "Randomize",IDC_tbsPeriphRadioRandomize,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,199,276,46,10
+    EDITTEXT        IDC_tbsPctRedTrials,256,274,22,14,ES_AUTOHSCROLL | WS_GROUP
+    EDITTEXT        IDC_tbsPctBlueTrials,285,274,22,14,ES_AUTOHSCROLL
+    CONTROL         "Gratings on Dots",IDC_tbsDotGratings,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,200,337,69,10
+    EDITTEXT        IDC_tbsDotGratingContrast,237,351,27,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsDotGratingCycles,323,350,27,14,ES_AUTOHSCROLL
+    CONTROL         "Use Cartesian Grid",IDC_tbsGridRadioCartesian,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,619,191,72,10
+    CONTROL         "Use Radial Grid",IDC_tbsGridRadioRadial,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,619,245,61,10
+    EDITTEXT        IDC_tbsNumStepsH,709,202,43,14,ES_AUTOHSCROLL | WS_GROUP
+    EDITTEXT        IDC_tbsNumStepsV,709,218,43,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsStepSize,825,205,43,14,ES_AUTOHSCROLL
+    CONTROL         "Avoid Zero",IDC_tbsAvoidZero,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,765,221,51,10
+    CONTROL         "O",IDC_tbsRadiusOrigin,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,669,298,17,10
+    CONTROL         "0",IDC_tbsAngle0,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,669,269,22,10
+    CONTROL         "45",IDC_tbsAngle45,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,691,279,22,10
+    CONTROL         "90",IDC_tbsAngle90,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,701,298,22,10
+    CONTROL         "135",IDC_tbsAngle135,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,691,319,25,10
+    CONTROL         "180",IDC_tbsAngle180,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,655,332,22,10
+    CONTROL         "225",IDC_tbsAngle225,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,633,319,22,10
+    CONTROL         "270",IDC_tbsAngle270,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,623,298,22,10
+    CONTROL         "315",IDC_tbsAngle315,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,633,279,22,10
+    EDITTEXT        IDC_tbsAngleOffset,737,282,29,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsRadiusOffset,737,325,29,14,ES_AUTOHSCROLL
+    CONTROL         "0 degrees",IDC_tbsRadius0,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,805,266,45,10
+    CONTROL         "5 degrees",IDC_tbsRadius5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,805,278,45,10
+    CONTROL         "10 degrees",IDC_tbsRadius10,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,805,290,48,10
+    CONTROL         "15 degrees",IDC_tbsRadius15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,805,302,48,10
+    CONTROL         "20 degrees",IDC_tbsRadius20,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,805,314,49,10
+    CONTROL         "25 degrees",IDC_tbsRadius25,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,805,326,50,10
+    CONTROL         "30 degrees",IDC_tbsRadius30,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,805,338,48,10
+    CONTROL         "Display Noise Background",IDC_tbsUseNoise,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,697,387,97,14
+    CONTROL         "Single background during trial",IDC_tbsSameBG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,697,401,110,10
+    CONTROL         "Interleave Noise/Blank Backgrounds",IDC_tbsInterleaveNoise,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,697,411,135,10
+    CONTROL         "Shapes occlude pattern",IDC_tbsOccludeBG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,697,422,91,10
+    EDITTEXT        IDC_tbsNoiseSize,753,445,27,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsNoisePct,753,461,27,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsNoiseRed,847,429,26,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsNoiseGreen,847,445,26,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsNoiseBlue,847,461,26,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Apply Changes",IDC_tbsButtonApply,314,480,71,14
+    GROUPBOX        "Color Options",-1,567,20,108,130
+    GROUPBOX        "Peripheral Target",-1,177,170,700,200
+    GROUPBOX        "Fixation Crosshair",-1,177,7,502,159
+    RTEXT           "Primary Center X (deg)",-1,322,72,77,9
+    RTEXT           "Primary Center Y (deg)",-1,326,87,73,8
+    LTEXT           "Flash Period (ms)",-1,348,208,59,10
+    LTEXT           "Step Size  (deg)",-1,765,206,55,9
+    LTEXT           "Number of Steps (horiz)",-1,627,206,77,11
+    LTEXT           "Diameter (deg)",-1,189,23,49,8
+    LTEXT           "Dot Radius Size (deg)",-1,191,185,70,8
+    LTEXT           "RGB (0-255)",-1,14,54,41,10
+    GROUPBOX        "Color Options",-1,191,209,132,123
+    LTEXT           "RGB (0-255)",-1,14,22,41,10
+    GROUPBOX        "Primary Color Red",-1,7,7,154,31
+    GROUPBOX        "Secondary Color Blue",-1,7,39,154,31
+    LTEXT           "Block Size",-1,585,79,32,8
+    LTEXT           " Saccade Not Held Timeout (ms)",-1,7,165,102,8
+    LTEXT           "Fixation Time (ms)",-1,422,23,59,8
+    LTEXT           "Number of Steps (vert)",-1,627,222,75,11
+    CONTROL         "Randomize flash period",IDC_tbsRandomizeFlashInterval,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,349,230,86,10
+    GROUPBOX        "",-1,275,34,270,22
+    LTEXT           "Min (ms)",-1,381,43,28,8
+    LTEXT           "Max (ms)",-1,468,43,30,8
+    GROUPBOX        "",-1,346,224,93,53
+    LTEXT           "Minimum (ms)",-1,352,246,44,8
+    LTEXT           "Maximum (ms)",-1,352,261,46,8
+    CONTROL         "",IDC_tbsSecondaryStatic,"Static",SS_BLACKFRAME | WS_BORDER,134,46,22,22
+    CONTROL         "",IDC_tbsPrimaryStatic,"Static",SS_BLACKFRAME | WS_BORDER,134,14,22,22
+    LTEXT           "Red (0-255)",-1,801,432,40,9
+    LTEXT           "Green (0-255)",-1,801,448,46,9
+    LTEXT           "Blue (0-255)",-1,801,464,40,10
+    CONTROL         "",IDC_tbsNoiseStatic,"Static",SS_BLACKFRAME | WS_BORDER,849,399,22,22
+    GROUPBOX        "Background  Noise",-1,687,375,189,104
+    LTEXT           "Red %",-1,255,264,23,8
+    LTEXT           "Noise Size (pix)",-1,701,448,49,8
+    LTEXT           "Thickness (pix)",-1,315,23,48,8
+    LTEXT           "Coverage (%)",-1,701,464,47,8
+    LTEXT           "Active Period (ms)",-1,534,340,59,8
+    LTEXT           "Misbehavior Timeout (ms)",-1,27,146,82,8
+    LTEXT           "Hold period (ms)",-1,427,337,53,8
+    LTEXT           "Reward Delay (ms)",-1,47,127,62,8
+    LTEXT           "Number of steps (X)",-1,447,85,67,9
+    LTEXT           "Number of steps (Y)",-1,447,101,68,10
+    LTEXT           "Contrast",-1,201,353,29,8
+    LTEXT           "Cycles/dot",-1,287,353,35,8
+    LTEXT           "Step size (deg)",-1,446,69,53,9
+    LTEXT           "Fixation-Flash Delay (ms)",-1,28,108,81,8
+    LTEXT           "9999",IDC_tbsTrialResults_RR_R,235,408,25,10
+    GROUPBOX        "Trial Results",-1,178,375,469,102
+    LTEXT           "Red/Red",-1,235,390,29,8
+    LTEXT           "Red/Blue",-1,274,390,29,8
+    LTEXT           "Blue/Blue",-1,391,390,29,8
+    LTEXT           "Blue/Red",-1,351,390,29,8
+    LTEXT           "Right",-1,198,408,19,8
+    LTEXT           "Wrong",-1,195,426,22,8
+    LTEXT           "Total",-1,200,443,17,10
+    LTEXT           "Total",-1,594,390,20,8
+    LTEXT           "9999",IDC_tbsTrialResults_RR_W,235,426,27,10
+    LTEXT           "9999 \n(999%)",IDC_tbsTrialResults_RR_T,235,443,25,19
+    LTEXT           "9999",IDC_tbsTrialResults_RB_R,274,408,28,10
+    LTEXT           "9999",IDC_tbsTrialResults_RB_W,274,426,27,10
+    LTEXT           "9999 \n(999%)",IDC_tbsTrialResults_RB_T,274,443,26,17
+    LTEXT           "9999",IDC_tbsTrialResults_BR_R,351,408,27,10
+    LTEXT           "9999",IDC_tbsTrialResults_BR_W,351,426,27,10
+    LTEXT           "9999 \n(999%)",IDC_tbsTrialResults_BR_T,351,443,26,17
+    LTEXT           "9999",IDC_tbsTrialResults_BB_R,391,408,26,10
+    LTEXT           "9999",IDC_tbsTrialResults_BB_W,391,426,26,10
+    LTEXT           "9999 \n(999%)",IDC_tbsTrialResults_BB_T,391,443,28,17
+    LTEXT           "9999 (999%)",IDC_tbsTrialResults_R_T,594,408,45,10
+    LTEXT           "9999 (999%)",IDC_tbsTrialResults_W_T,594,426,44,10
+    LTEXT           "9999",IDC_tbsTrialResults_Total,594,443,43,10
+    GROUPBOX        "",-1,191,330,162,37
+    LTEXT           "%",-1,267,354,8,8
+    GROUPBOX        "Grid Selection",-1,614,178,259,177
+    CTEXT           "Polar",-1,665,284,17,9
+    LTEXT           "Radius",-1,805,253,24,10
+    CTEXT           "Angle\nOffset",-1,735,261,35,18
+    CTEXT           "Radius\nOffset",-1,735,306,35,18
+    CTEXT           "Angle",-1,663,314,22,9
+    GROUPBOX        "Grid Settings",-1,181,57,379,103
+    GROUPBOX        "Eye Coverage",-1,7,197,137,120
+    LTEXT           "Deviation Angle\n(approximate)",-1,446,116,66,18
+    GROUPBOX        "Info",-1,7,357,137,83
+    LTEXT           "",IDC_tbsInfoDisplay,16,367,119,71
+    GROUPBOX        "Eye Positions",-1,7,441,137,36
+    CTEXT           "",IDC_tbsEyePosnDisplayLX,14,460,25,11,0,WS_EX_STATICEDGE
+    CTEXT           "",IDC_tbsEyePosnDisplayLY,43,460,25,11,0,WS_EX_STATICEDGE
+    LTEXT           "Left",-1,35,450,14,8
+    CTEXT           "",IDC_tbsEyePosnDisplayRX,81,460,25,11,0,WS_EX_STATICEDGE
+    CTEXT           "",IDC_tbsEyePosnDisplayRY,111,460,25,11,0,WS_EX_STATICEDGE
+    LTEXT           "Right",-1,101,450,17,8
+    LTEXT           "Blue %",-1,284,264,24,8
+    LTEXT           "RGB (0-255)",-1,14,86,41,10
+    GROUPBOX        "Tertiary Color Purple",-1,7,71,154,31
+    CONTROL         "",IDC_tbsTertiaryStatic,"Static",SS_BLACKFRAME | WS_BORDER,134,78,22,22
+    CONTROL         "Blank timeout screen",IDC_tbsBlankTimeOutScreen,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,41,182,93,10
+    EDITTEXT        IDC_tbsPctRedCtr,586,127,21,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsPctBlueCtr,615,127,21,14,ES_AUTOHSCROLL
+    LTEXT           "Red %",-1,586,117,23,8
+    LTEXT           "Blue %",-1,616,117,24,8
+    CONTROL         "With purple?",IDC_tbsAlternateWithPurple,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,615,92,52,10
+    CONTROL         "Subject",IDC_tbsSaccadeTriggerRadioSubject,"Button",BS_AUTORADIOBUTTON,561,192,38,10
+    CONTROL         "Crosshair cue",IDC_tbsSaccadeTriggerRadioCue,"Button",BS_AUTORADIOBUTTON | WS_GROUP,443,192,59,10
+    CONTROL         "Target flash",IDC_tbsSaccadeTriggerRadioFlash,"Button",BS_AUTORADIOBUTTON,339,192,55,10
+    EDITTEXT        IDC_tbsCueTimeMin,479,222,27,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsCueTimeMax,507,222,27,14,ES_AUTOHSCROLL
+    LTEXT           "Trial Timing, min/max, ms",-1,455,208,81,8,NOT WS_GROUP
+    LTEXT           "Cue",-1,455,225,15,9,NOT WS_GROUP
+    GROUPBOX        "Saccade Trigger",-1,331,179,278,146
+    LTEXT           "9999",IDC_tbsTrialResults_RP_R,312,408,25,10
+    LTEXT           "Red/Ppl",-1,312,390,26,8
+    LTEXT           "Blue/Ppl",-1,433,390,29,8
+    LTEXT           "Ppl/Blue",-1,512,390,29,8
+    LTEXT           "Ppl/Red",-1,473,390,29,8
+    LTEXT           "9999",IDC_tbsTrialResults_RP_W,312,426,27,10
+    LTEXT           "9999 \n(999%)",IDC_tbsTrialResults_RP_T,312,443,25,19
+    LTEXT           "9999",IDC_tbsTrialResults_BP_R,433,408,28,10
+    LTEXT           "9999",IDC_tbsTrialResults_BP_W,433,426,27,10
+    LTEXT           "9999 \n(999%)",IDC_tbsTrialResults_BP_T,433,443,26,17
+    LTEXT           "9999",IDC_tbsTrialResults_PR_R,473,408,27,10
+    LTEXT           "9999",IDC_tbsTrialResults_PR_W,473,426,27,10
+    LTEXT           "9999 \n(999%)",IDC_tbsTrialResults_PR_T,473,443,26,17
+    LTEXT           "9999",IDC_tbsTrialResults_PB_R,512,408,26,10
+    LTEXT           "9999",IDC_tbsTrialResults_PB_W,512,426,26,10
+    LTEXT           "9999 \n(999%)",IDC_tbsTrialResults_PB_T,512,443,28,17
+    LTEXT           "Ppl/Ppl",-1,553,390,29,8
+    LTEXT           "9999",IDC_tbsTrialResults_PP_R,553,408,26,10
+    LTEXT           "9999",IDC_tbsTrialResults_PP_W,553,426,26,10
+    LTEXT           "9999 \n(999%)",IDC_tbsTrialResults_PP_T,553,443,28,17
+    CONTROL         "",IDC_tbsTrialResultsBorderPrimary,"Static",SS_BLACKFRAME,233,400,105,3
+    CONTROL         "",IDC_tbsTrialResultsBorderSecondary,"Static",SS_BLACKFRAME,349,400,111,3
+    CONTROL         "",IDC_tbsTrialResultsBorderTertiary,"Static",SS_BLACKFRAME,471,400,105,3
+    CONTROL         "",IDC_tbsTrialSequenceImgCross,"Static",SS_BLACKFRAME | WS_BORDER,705,61,191,12
+    CTEXT           "+",-1,689,63,8,8
+    CONTROL         "",IDC_tbsTrialSequenceImgDot,"Static",SS_BLACKFRAME | WS_BORDER,705,83,191,12
+    CTEXT           "o",-1,689,85,8,8
+    EDITTEXT        IDC_tbsDelayTimeMin,479,238,27,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsDelayTimeMax,507,238,27,14,ES_AUTOHSCROLL
+    LTEXT           "Delay",-1,455,241,19,8,NOT WS_GROUP
+    EDITTEXT        IDC_tbsLingerTimeMin,479,254,27,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_tbsLingerTimeMax,507,254,27,14,ES_AUTOHSCROLL
+    LTEXT           "Linger",-1,455,257,20,8,NOT WS_GROUP
+    LTEXT           "",IDC_tbsTrialSequenceImgTimeScale,706,74,189,8
+    RTEXT           """Cue"" =",-1,461,280,26,9,NOT WS_GROUP
+    RTEXT           """Delay"" =",-1,456,290,31,9,NOT WS_GROUP
+    LTEXT           "Cross + Dot",-1,491,280,40,9,NOT WS_GROUP
+    LTEXT           "Cross after dot off",-1,491,290,61,9,NOT WS_GROUP
+    LTEXT           "Dot after cross off",-1,491,300,61,9,NOT WS_GROUP
+    RTEXT           """Linger"" =",-1,451,300,36,9,NOT WS_GROUP
+    LTEXT           "Must fixate cross when displayed",-1,451,271,107,9,NOT WS_GROUP
+    LTEXT           "Active Period begins when cross extinguished",-1,433,310,146,9,NOT WS_GROUP
+    RTEXT           "Secondary Center X (deg)",-1,316,104,83,9
+    RTEXT           "Secondary Center Y (deg)",-1,316,120,83,8
+    EDITTEXT        IDC_tbsCenterXPosSec,405,101,30,14,ES_AUTOHSCROLL | WS_GROUP
+    EDITTEXT        IDC_tbsCenterYPosSec,405,117,29,14,ES_AUTOHSCROLL
+    CONTROL         "Cue training mode",IDC_tbsCueTrainingMode,"Button",BS_AUTOCHECKBOX | BS_RIGHT | WS_TABSTOP,349,287,72,10,WS_EX_RIGHT | WS_EX_RTLREADING
+    CONTROL         "",IDC_tbsDifficultySlider,"msctls_trackbar32",TBS_AUTOTICKS | TBS_TOP | WS_TABSTOP,209,297,99,17
+    CTEXT           "Difficulty",-1,240,290,33,8
+    CTEXT           "Difficulty description",IDC_tbsDifficultyDescription,202,316,115,10
+END
+
+IDD_FIXATIONSTAB_DLG DIALOGEX 10, 40, 694, 454
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Display noise background",IDC_fsUseNoise,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,267,97,10
+    CONTROL         "Single background during trial",IDC_fsSameBG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,278,110,10
+    CONTROL         "Interleave noise/blank backgrounds",IDC_fsInterleaveNoise,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,289,135,10
+    CONTROL         "Shapes occlude pattern",IDC_fsOccludeBG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,300,91,10
+    EDITTEXT        IDC_fsNoiseSize,74,319,27,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_fsNoiseCoverage,74,334,27,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_fsNoiseColorRed,168,317,26,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_fsNoiseColorGreen,168,333,26,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_fsNoiseColorBlue,168,349,26,14,ES_AUTOHSCROLL
+    LTEXT           "Red (0-255)",-1,122,320,40,9
+    LTEXT           "Green (0-255)",-1,122,336,46,9
+    LTEXT           "Blue (0-255)",-1,122,352,40,10
+    GROUPBOX        "Background  Noise",-1,7,253,192,115
+    LTEXT           "Noise Size (pix)",-1,22,322,49,8
+    LTEXT           "Coverage (%)",-1,22,337,47,8
+    EDITTEXT        IDC_fsCrosshairDiameter,101,32,42,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_fsCrosshairThickness,100,49,42,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_fsFixationTime,101,66,42,14,ES_AUTOHSCROLL
+    GROUPBOX        "Fixation Crosshair",-1,18,18,139,74
+    LTEXT           "Diameter (deg)",-1,30,34,49,8
+    LTEXT           "Fixation Time (ms)",-1,28,66,59,8
+    LTEXT           "Thickness (pix)",-1,28,50,48,8
+    GROUPBOX        "Left Eye Fixation",-1,443,17,235,350
+    GROUPBOX        "Right Eye Fixation",-1,202,17,235,350
+    CONTROL         "@ Center",IDC_fsLeftFixationNoOccAtCtr,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,483,148,45,14
+    CONTROL         "@ Half-way",IDC_fsLeftFixationNoOccAtHalf,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,483,177,56,14
+    CONTROL         "@ Periphery",IDC_fsLeftFixationNoOccAtPeriph,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,483,201,56,14
+    EDITTEXT        IDC_fsRightColorRed,261,49,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_fsRightColorGreen,286,49,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_fsRightColorBlue,311,49,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_fsLeftColorRed,500,49,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_fsLeftColorGreen,525,49,23,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_fsLeftColorBlue,550,49,23,14,ES_AUTOHSCROLL
+    LTEXT           "RGB (0-255)",-1,456,52,41,10
+    LTEXT           "RGB (0-255)",-1,217,52,41,10
+    GROUPBOX        "Color",-1,210,36,154,31
+    GROUPBOX        "Color",-1,449,36,154,31
+    EDITTEXT        IDC_fsLeftEyeFixatingDeviation,521,84,42,14,ES_AUTOHSCROLL
+    LTEXT           "Deviation (deg)",-1,460,87,50,8
+    EDITTEXT        IDC_fsRightEyeFixatingDeviation,282,87,42,14,ES_AUTOHSCROLL
+    LTEXT           "Deviation (deg)",-1,220,92,50,8
+    GROUPBOX        "No Occlusion",-1,460,137,159,87
+    CONTROL         "@ Center",IDC_fsLeftFixationOccAtCtr,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,481,273,45,14
+    CONTROL         "@ Half-way",IDC_fsLeftFixationOccAtHalf,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,483,297,56,14
+    CONTROL         "@ Periphery",IDC_fsLeftFixationOccAtPeriph,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,483,321,56,14
+    GROUPBOX        "Other Eye Occlusion",-1,459,261,159,91
+    CONTROL         "@ Center",IDC_fsRightFixationNoOccAtCtr,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,251,156,45,14
+    CONTROL         "@ Half-way",IDC_fsRightFixationNoOccAtHalf,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,251,185,56,14
+    CONTROL         "@ Periphery",IDC_fsRightFixationNoOccAtPeriph,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,251,209,56,14
+    GROUPBOX        "No Occlusion",-1,228,145,159,85
+    CONTROL         "@ Center",IDC_fsRightFixationOccAtCtr,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,249,281,45,14
+    CONTROL         "@ Half-way",IDC_fsRightFixationOccAtHalf,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,251,305,56,14
+    CONTROL         "@ Periphery",IDC_fsRightFixationOccAtPeriph,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,251,329,56,14
+    GROUPBOX        "Other Eye Occlusion",-1,229,267,159,86
+    PUSHBUTTON      "Apply",IDC_fsApply,296,409,50,14
+    CONTROL         "",IDC_fsLeftColorStatic,"Static",SS_BLACKFRAME | WS_BORDER,579,44,20,20
+    CONTROL         "",IDC_fsRightColorStatic,"Static",SS_BLACKFRAME | WS_BORDER,340,42,20,20
+    CONTROL         "",IDC_fsNoiseColorStatic,"Static",SS_BLACKFRAME | WS_BORDER,172,293,20,20
+    EDITTEXT        IDC_fsNoiseCommon,74,349,27,14,ES_AUTOHSCROLL
+    LTEXT           "Common (%)",-1,22,352,43,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "TODO: <Company name>"
+            VALUE "FileDescription", "TODO: <File description>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "EyeTracking.exe"
+            VALUE "LegalCopyright", "TODO: (c) <Company name>.  All rights reserved."
+            VALUE "OriginalFilename", "EyeTracking.exe"
+            VALUE "ProductName", "TODO: <Product name>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_EYETRACKING_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 692
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 472
+    END
+
+    IDD_SACCADE_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 586
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 435
+    END
+
+    IDD_PURSUIT_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 443
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 275
+    END
+
+    IDD_CALIBRATION_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 406
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 267
+    END
+
+    IDD_SETTINGS_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 443
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 276
+    END
+
+    IDD_FULLFIELD_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 443
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 275
+    END
+
+    IDD_STEPRAMP_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 443
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 276
+    END
+
+    IDD_SCENE_CALIBRATION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 443
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 275
+    END
+
+    IDD_OCULAR_FOLLOWING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 443
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 341
+    END
+
+    IDD_ISOLUMINANT_PATCH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 443
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 276
+    END
+
+    IDD_NOISE_GRATING_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 442
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 296
+    END
+
+    IDD_PREF_SEL_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 562
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 294
+    END
+
+    IDD_ORIENTATION_TUNING_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 513
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 415
+    END
+
+    IDD_RF_MAPPING_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 590
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 354
+    END
+
+    IDD_CIRCLE_ANNULUS_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 744
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 433
+    END
+
+    IDD_APD_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 509
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 299
+    END
+
+    IDD_REMEMBER_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 684
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 538
+    END
+
+    IDD_SUPPRESSION_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 415
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 321
+    END
+
+    IDD_ALTERNATION_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 325
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 279
+    END
+
+    IDD_MSEQUENCE_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 424
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 352
+    END
+
+    IDD_RULER_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 333
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 217
+    END
+
+    IDD_AMBLYOSCOPE_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 596
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 453
+    END
+
+    IDD_SCOTOMA_MAP_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 720
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 494
+    END
+
+    IDD_ANAGLYPH_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 427
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 194
+    END
+
+    IDD_GRATINGS_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 599
+        VERTGUIDE, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 418
+    END
+
+    IDD_TRIAL_SACCADES_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 918
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 494
+    END
+
+    IDD_FIXATIONSTAB_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 687
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 447
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_MANIFEST
+//
+
+IDR_MANIFEST            RT_MANIFEST             "EyeTracking.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_NOISE_GRATING_DLG DLGINIT
+BEGIN
+    IDC_NoiseType, 0x403, 6, 0
+0x6857, 0x7469, 0x0065, 
+    IDC_NoiseType, 0x403, 9, 0
+0x6147, 0x7375, 0x6973, 0x6e61, "\000" 
+    IDC_MaskBlending, 0x403, 7, 0
+0x694c, 0x656e, 0x7261, "\000" 
+    IDC_MaskBlending, 0x403, 10, 0
+0x7551, 0x6461, 0x6172, 0x6974, 0x0063, 
+    IDC_MaskBlending, 0x403, 12, 0
+0x7845, 0x6f70, 0x656e, 0x746e, 0x6169, 0x006c, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU1 MENU 
+BEGIN
+    POPUP "Response"
+    BEGIN
+        MENUITEM "Red",                         ID_RESPONSE_RED
+        MENUITEM "Blue",                        ID_RESPONSE_BLUE
+        MENUITEM "Both",                        ID_RESPONSE_BOTH
+        MENUITEM "Nothing",                     ID_RESPONSE_NOTHING
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About EyeTracking..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\EyeTracking.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
